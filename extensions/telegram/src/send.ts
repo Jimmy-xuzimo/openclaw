@@ -490,6 +490,16 @@ function createTelegramRequestWithDiag(params: {
   };
 }
 
+const MAX_INPUT_PREVIEW_LENGTH = 128;
+
+function safePreview(input: string): string {
+  const truncated = input.length > MAX_INPUT_PREVIEW_LENGTH
+    ? input.slice(0, MAX_INPUT_PREVIEW_LENGTH) + "…"
+    : input;
+  const json = JSON.stringify(truncated);
+  return redactSensitiveText(json);
+}
+
 function wrapTelegramChatNotFoundError(err: unknown, params: { chatId: string; input: string }) {
   if (!CHAT_NOT_FOUND_RE.test(formatErrorMessage(err))) {
     return err;
@@ -498,7 +508,7 @@ function wrapTelegramChatNotFoundError(err: unknown, params: { chatId: string; i
     [
       `Telegram send failed: chat not found (chat_id=${params.chatId}).`,
       "Likely: bot not started in DM, bot removed from group/channel, group migrated (new -100… id), or wrong bot token.",
-      `Input was: ${JSON.stringify(params.input)}.`,
+      `Input was: ${safePreview(params.input)}.`,
     ].join(" "),
   );
 }
