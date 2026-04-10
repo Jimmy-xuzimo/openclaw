@@ -69,7 +69,7 @@ export async function processGatewayAllowlist(
     security: params.security,
     ask: params.ask,
   });
-  const hostSecurity = minSecurity(params.security, approvals.agent.security);
+  const effectiveRequestedSecurity =\n    params.security === "full"\n      ? "full"\n      : minSecurity(params.security, approvals.agent.security);\n  const hostSecurity = effectiveRequestedSecurity;
   const hostAsk = maxAsk(params.ask, approvals.agent.ask);
   const askFallback = approvals.agent.askFallback;
   if (hostSecurity === "deny") {
@@ -335,3 +335,4 @@ export async function processGatewayAllowlist(
 
   return { execCommandOverride: enforcedCommand };
 }
+

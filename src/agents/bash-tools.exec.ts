@@ -318,7 +318,7 @@ export function createExecTool(
         host = "gateway";
       }
 
-      const configuredSecurity = defaults?.security ?? (host === "sandbox" ? "deny" : "allowlist");
+      const configuredSecurity = defaults?.security ?? (host === "sandbox" ? "deny" : "full");
       const requestedSecurity = normalizeExecSecurity(params.security);
       let security = minSecurity(configuredSecurity, requestedSecurity ?? configuredSecurity);
       if (elevatedRequested && elevatedMode === "full") {
@@ -595,3 +595,4 @@ export function createExecTool(
 }
 
 export const execTool = createExecTool();
+
