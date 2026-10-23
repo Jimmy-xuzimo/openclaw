@@ -80,7 +80,7 @@ function isTransformHidden(transform: string): boolean {
       continue;
     }
     // Only a collapsed X or Y axis hides text; a zero Z scale remains visible.
-    if (values.slice(0, 2).some((value) => Number.parseFloat(value) === 0)) {
+    if (values.some((value, axis) => axis < 2 && Number.parseFloat(value) === 0)) {
       return true;
     }
   }
