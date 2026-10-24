@@ -31,7 +31,7 @@ const input = {
   analysis: { parsed: true, allowlistMatched: false, inlineEval: false },
 };
 
-it.for(["overlap", "late-preparation", "callback-tail", "cancel-tail"] as const)(
+it.for(["overlap", "late-preparation", "callback-tail", "cancel-tail", "fallback"] as const)(
   "retains the exec reviewer model through %s",
   async (mode, testContext) => {
     if (mode === "cancel-tail" && process.versions.bun) {
@@ -55,6 +55,7 @@ it.for(["overlap", "late-preparation", "callback-tail", "cancel-tail"] as const)
     const heldWorkStarted = createDeferred();
     const finishWork = createDeferred();
     const requests: ServerResponse[] = [];
+    const requestedModels: string[] = [];
     const finish = (response: ServerResponse) => {
       if (response.destroyed || response.writableEnded) {
         return;
@@ -64,8 +65,26 @@ it.for(["overlap", "late-preparation", "callback-tail", "cancel-tail"] as const)
         `data: ${JSON.stringify({ id: "review", object: "chat.completion.chunk", model: "reviewer", choices: [{ index: 0, delta: { content: JSON.stringify({ decision: "ask", risk: "low", rationale: "fixture" }) }, finish_reason: "stop" }] })}\n\ndata: [DONE]\n\n`,
       );
     };
-    const server = createServer((_request, response) => {
+    const server = createServer((request, response) => {
       requests.push(response);
+      if (mode === "fallback") {
+        let body = "";
+        request.setEncoding("utf8");
+        request.on("data", (chunk: string) => {
+          body += chunk;
+        });
+        request.on("end", () => {
+          const model = JSON.parse(body).model as string;
+          requestedModels.push(model);
+          if (model === "reviewer") {
+            response.writeHead(503, { "content-type": "application/json" });
+            response.end(JSON.stringify({ error: { message: "fixture provider unavailable" } }));
+          } else {
+            finish(response);
+          }
+        });
+        return;
+      }
       arrived.resolve();
     });
     const baseUrl = await listenProvider(server);
@@ -78,17 +97,15 @@ it.for(["overlap", "late-preparation", "callback-tail", "cancel-tail"] as const)
             api: "openai-completions",
             apiKey: "fixture-only",
             baseUrl,
-            models: [
-              {
-                id: "reviewer",
-                name: "Reviewer",
-                reasoning: false,
-                input: ["text"],
-                cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
-                contextWindow: 8192,
-                maxTokens: 1024,
-              },
-            ],
+            models: ["reviewer", "backup"].map((id) => ({
+              id,
+              name: id,
+              reasoning: false,
+              input: ["text"],
+              cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+              contextWindow: 8192,
+              maxTokens: 1024,
+            })),
           },
         },
       },
@@ -196,12 +213,34 @@ it.for(["overlap", "late-preparation", "callback-tail", "cancel-tail"] as const)
             const reviewer = createModelExecAutoReviewer({
               cfg,
               agentId: "main",
-              reviewer: { timeoutMs: 5000 },
+              reviewer: {
+                timeoutMs: 5000,
+                ...(mode === "fallback"
+                  ? {
+                      model: {
+                        primary: `${fixture.providerId}/reviewer`,
+                        fallbacks: [`${fixture.providerId}/backup`],
+                      },
+                    }
+                  : {}),
+              },
             });
             if (timesOut) {
               vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
             }
             first = parent.track(() => reviewer(input));
+            if (mode === "fallback") {
+              await expect(first).resolves.toMatchObject({
+                decision: "ask",
+                risk: "low",
+                rationale: "fixture",
+              });
+              await parent.drain();
+              expect(requestedModels[0]).toBe("reviewer");
+              expect(requestedModels.at(-1)).toBe("backup");
+              expect(requestedModels.filter((model) => model === "backup")).toHaveLength(1);
+              return;
+            }
             const started = mode === "late-preparation" ? heldWorkStarted.promise : arrived.promise;
             await Promise.race([
               started,
