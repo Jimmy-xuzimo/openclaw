@@ -5720,7 +5720,7 @@ printf '%s\n' "\${CURL_SUCCESS_IP:-203.0.113.7}"
     expectIncludes(run, [
       'OPENCLAW_VITEST_FS_MODULE_CACHE_PATH="${RUNNER_TEMP}/vitest-module-cache/${name}"',
       "test/scripts/doctor-config-preflight-plugin-index.built-cli.e2e.test.ts",
-      "env OPENCLAW_E2E_USE_PREBUILT_DIST=1 OPENCLAW_VITEST_NO_OUTPUT_TIMEOUT_MS=660000 node scripts/run-vitest.mjs run",
+      "env OPENCLAW_VITEST_WORKER_CACHE=1 OPENCLAW_E2E_USE_PREBUILT_DIST=1 OPENCLAW_VITEST_NO_OUTPUT_TIMEOUT_MS=660000 node scripts/run-vitest.mjs run",
       "--config test/vitest/vitest.e2e.config.ts",
       "Selected target predates",
       "pnpm test:build:singleton",
@@ -6177,9 +6177,9 @@ printf '%s\n' "\${CURL_SUCCESS_IP:-203.0.113.7}"
       },
       run: "node scripts/pr-crabbox-gate-publisher.mjs --publish",
     });
-    expect(job.steps[2].run).toContain("crabbox_0.77.0_linux_amd64.tar.gz");
+    expect(job.steps[2].run).toContain("crabbox_0.79.2_linux_amd64.tar.gz");
     expect(job.steps[2].run).toContain(
-      "cbf6cb74251a454c65d13d7a92b070cf8c37ee81c300c97123063b9d21206d5f",
+      "316e2d788c9f85d0a7e876a0a91eab5e0a9257b8c572ca2c1372dbe066395dae",
     );
     expect(job.steps.slice(3, 5)).toMatchObject([
       {

@@ -169,7 +169,7 @@ overrides:
   chevrotain>lodash-es: 4.18.1
   '@chevrotain/cst-dts-gen>lodash-es': 4.18.1
   '@chevrotain/gast>lodash-es': 4.18.1
-  '@agentclientprotocol/codex-acp@2.2.2>@openai/codex': 0.162.1
+  '@agentclientprotocol/codex-acp@2.2.2>@openai/codex': 0.164.0
   '@codemirror/commands@6.11.1>@codemirror/view': 6.43.14
   '@codemirror/view@6.43.14>@codemirror/state': 6.7.6
   '@anthropic-ai/sdk': 0.135.0
@@ -208,14 +208,25 @@ overrides:
   protobufjs: 8.8.1
   uuid: 14.0.3
 
-packageExtensionsChecksum: sha256-+aaViXQWMTYboC/2zljN8mTDYzt1x2ZpXFjRkJd9Eys=
+packageExtensionsChecksum: sha256-0IIHieOIUT+o/+0r+0aLcYtVWCtpCxToLdTNWrJI0ZM=
 
 patchedDependencies:
+  '@clawdbot/lobster@2026.9.16': d7c8f595b518c4c749e4787a2e90bfc9330fb0edccfcbdf8ff871787fb9a82e9
+  '@homebridge/ciao@1.3.12': 1aa69b0c9796f4c7f3255bcc8cdae0c2409c3ad040ecac5e915160f0e58e49ae
   '@novnc/novnc@1.7.0': bfde0e1bda172da3525f9f5014d85ad28073325b74f09609084598a65d2f412d
+  '@openclaw/crabline@0.1.30': e20ebba9e5436726475f2e112d9c9322ff7078a0a8068c789716e1e6519b4cf0
+  '@shinyoshiaki/binary-data@0.6.1': 231e04c1ca6a2f66dda30dfe23c1178d2df9fbc2161d9eac7689e3a751a85a9b
+  '@solidjs/signals@2.0.0-rc.18': 421b418083c0218bb54ceb3e12bd0eb74a84e86474ca26cc1f1114abbe58de48
+  '@solidjs/web@2.0.0-rc.18': 6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf
+  apache-arrow@21.2.0: c8385fd9a8af8122fc1787481b5bba21fef95f61dc1a664e5d2c5e0cb9d5fd68
   baileys@7.0.0-rc14: c3c4601486630c689ffd1a0e7a34f4b8cf8e7231e41c312ad33afdf4487d8ded
   chrome-devtools-mcp@1.11.0: c2e391b196607620c519f04eb1563dc4a8f01aebed3b70bd77e6635ae03a5c9a
   ghostty-web@0.4.0: d4c6598b6840564dac4a469f3aa9b8df24fe6eab48a6744302707017e095a524
   matrix-js-sdk@43.0.0: c3ad7f3afbd9ded4643fbfa31f5862d48d4e05d198cb438efbb4fcdaa845b0cc
+  minizlib@3.1.0: 9669b7a5b10b7831ff19c6066787f9dbed0dca18685d6ea8a17bad8282c3f39c
+  playwright-core@1.64.1: eedf680682a6840d82c6ad530a60875857aa8c0372785acf8e8e5df9c2e3ac16
+  proper-lockfile@4.1.2: ef83b3d51ecb27f8b06d2a3660d509c3da303d7e1d2074712b0ecc2f6256b7cf
+  tar@7.5.22: fd38a2350a01d3eec80c7c393b88647baea164251683cffc481cb3aa5df2a75c
   vitest@5.0.5: abb35069c56858589f463527013088f26c8da59c6cccfd5c48b35c472caac355
 
 importers:
@@ -254,7 +265,7 @@ importers:
         version: 1.2.1(grammy@1.46.0(supports-color@10.2.2))
       '@homebridge/ciao':
         specifier: 1.3.12
-        version: 1.3.12(supports-color@10.2.2)
+        version: 1.3.12(patch_hash=1aa69b0c9796f4c7f3255bcc8cdae0c2409c3ad040ecac5e915160f0e58e49ae)(supports-color@10.2.2)
       '@lydell/node-pty':
         specifier: 1.2.0-beta.15
         version: 1.2.0-beta.15
@@ -280,8 +291,8 @@ importers:
         specifier: workspace:*
         version: link:packages/ai
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       '@openclaw/proc-safe':
         specifier: 0.4.2
         version: 0.4.2
@@ -407,7 +418,10 @@ importers:
         version: 8.23.1
       playwright-core:
         specifier: 1.64.1
-        version: 1.64.1
+        version: 1.64.1(patch_hash=eedf680682a6840d82c6ad530a60875857aa8c0372785acf8e8e5df9c2e3ac16)
+      proxy-from-env:
+        specifier: 2.1.0
+        version: 2.1.0
       qrcode:
         specifier: 1.5.4
         version: 1.5.4
@@ -419,7 +433,7 @@ importers:
         version: 7.8.5
       tar:
         specifier: 7.5.22
-        version: 7.5.22
+        version: 7.5.22(patch_hash=fd38a2350a01d3eec80c7c393b88647baea164251683cffc481cb3aa5df2a75c)
       tslog:
         specifier: 5.2.0
         version: 5.2.0
@@ -448,9 +462,6 @@ importers:
         specifier: 3.25.2
         version: 3.25.2(zod@4.6.7)
     devDependencies:
-      '@a2ui/web_core':
-        specifier: 0.13.0
-        version: 0.13.0
       '@babel/types':
         specifier: 8.0.6
         version: 8.0.6
@@ -465,7 +476,7 @@ importers:
         version: 2.7.0(@opentelemetry/api@1.9.1)(@opentelemetry/exporter-trace-otlp-http@0.220.0(@opentelemetry/api@1.9.1))(@opentelemetry/resources@2.12.0(@opentelemetry/api@1.9.1))(@opentelemetry/sdk-trace-base@2.12.0(@opentelemetry/api@1.9.1))
       '@openclaw/crabline':
         specifier: 0.1.30
-        version: 0.1.30
+        version: 0.1.30(patch_hash=e20ebba9e5436726475f2e112d9c9322ff7078a0a8068c789716e1e6519b4cf0)
       '@openclaw/session-url-contract':
         specifier: workspace:*
         version: link:packages/session-url-contract
@@ -524,11 +535,14 @@ importers:
         specifier: 5.0.5
         version: 5.0.5(@vitest/browser@5.0.5)(vitest@5.0.5)
       acpx:
-        specifier: 0.19.6
-        version: 0.19.6
+        specifier: 0.21.0
+        version: 0.21.0
+      ajv:
+        specifier: 8.20.0
+        version: 8.20.0
       apache-arrow:
         specifier: 21.2.0
-        version: 21.2.0
+        version: 21.2.0(patch_hash=c8385fd9a8af8122fc1787481b5bba21fef95f61dc1a664e5d2c5e0cb9d5fd68)
       baileys:
         specifier: 7.0.0-rc14
         version: 7.0.0-rc14(patch_hash=c3c4601486630c689ffd1a0e7a34f4b8cf8e7231e41c312ad33afdf4487d8ded)(audio-decode@3.12.0)(supports-color@10.2.2)
@@ -655,20 +669,26 @@ importers:
         specifier: workspace:*
         version: link:../..
 
+  extensions/abliteration:
+    devDependencies:
+      '@openclaw/plugin-sdk':
+        specifier: workspace:*
+        version: link:../../packages/plugin-sdk
+
   extensions/acpx:
     dependencies:
       '@agentclientprotocol/claude-agent-acp':
-        specifier: 0.93.0
-        version: 0.93.0(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))
+        specifier: 0.95.0
+        version: 0.95.0(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))
       '@agentclientprotocol/codex-acp':
         specifier: 2.2.2
         version: 2.2.2
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       acpx:
-        specifier: 0.19.6
-        version: 0.19.6
+        specifier: 0.21.0
+        version: 0.21.0
       smol-toml:
         specifier: 1.9.1
         version: 1.9.1
@@ -828,7 +848,7 @@ importers:
     dependencies:
       '@homebridge/ciao':
         specifier: 1.3.12
-        version: 1.3.12(supports-color@10.2.2)
+        version: 1.3.12(patch_hash=1aa69b0c9796f4c7f3255bcc8cdae0c2409c3ad040ecac5e915160f0e58e49ae)(supports-color@10.2.2)
     devDependencies:
       '@openclaw/plugin-sdk':
         specifier: workspace:*
@@ -845,6 +865,9 @@ importers:
       '@modelcontextprotocol/client':
         specifier: 2.3.1
         version: 2.3.1
+      acorn:
+        specifier: 8.19.0
+        version: 8.19.0
       chrome-devtools-mcp:
         specifier: 1.11.0
         version: 1.11.0(patch_hash=c2e391b196607620c519f04eb1563dc4a8f01aebed3b70bd77e6635ae03a5c9a)
@@ -853,7 +876,7 @@ importers:
         version: 5.3.0(supports-color@10.2.2)
       playwright-core:
         specifier: 1.64.1
-        version: 1.64.1
+        version: 1.64.1(patch_hash=eedf680682a6840d82c6ad530a60875857aa8c0372785acf8e8e5df9c2e3ac16)
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -901,21 +924,6 @@ importers:
 
   extensions/canvas:
     dependencies:
-      '@a2ui/web_core':
-        specifier: 0.13.0
-        version: 0.13.0
-      '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
-      dompurify:
-        specifier: 3.4.17
-        version: 3.4.17
-      marked:
-        specifier: 18.1.1
-        version: 18.1.1
-      solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -923,9 +931,6 @@ importers:
       '@openclaw/plugin-sdk':
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
-      '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
 
   extensions/cerebras:
     devDependencies:
@@ -942,18 +947,18 @@ importers:
   extensions/clawrouter:
     dependencies:
       '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
     devDependencies:
       '@openclaw/plugin-sdk':
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
       '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
@@ -1003,11 +1008,14 @@ importers:
   extensions/codex:
     dependencies:
       '@openai/codex':
-        specifier: 0.162.1
-        version: 0.162.1
+        specifier: 0.164.0
+        version: 0.164.0
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
+      acorn:
+        specifier: 8.19.0
+        version: 8.19.0
       semver:
         specifier: 7.8.5
         version: 7.8.5
@@ -1065,8 +1073,8 @@ importers:
   extensions/cua-computer:
     dependencies:
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       '@trycua/cua-driver':
         specifier: 0.36.0
         version: 0.36.0
@@ -1164,7 +1172,7 @@ importers:
         version: 4.5.0
       playwright-core:
         specifier: 1.64.1
-        version: 1.64.1
+        version: 1.64.1(patch_hash=eedf680682a6840d82c6ad530a60875857aa8c0372785acf8e8e5df9c2e3ac16)
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -1303,8 +1311,8 @@ importers:
   extensions/file-transfer:
     dependencies:
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       minimatch:
         specifier: 10.2.6
         version: 10.2.6
@@ -1507,6 +1515,34 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
 
+  extensions/knowledge:
+    dependencies:
+      '@openclaw/fs-safe':
+        specifier: 0.26.13
+        version: 0.26.13
+      dompurify:
+        specifier: 3.4.17
+        version: 3.4.17
+      marked:
+        specifier: 18.1.1
+        version: 18.1.1
+      typebox:
+        specifier: 1.4.1
+        version: 1.4.1
+      yaml:
+        specifier: 2.9.1
+        version: 2.9.1
+    devDependencies:
+      '@openclaw/plugin-sdk':
+        specifier: workspace:*
+        version: link:../../packages/plugin-sdk
+      esbuild:
+        specifier: 0.28.2
+        version: 0.28.2
+      openclaw:
+        specifier: workspace:*
+        version: link:../..
+
   extensions/levanto:
     devDependencies:
       '@openclaw/plugin-sdk':
@@ -1551,8 +1587,8 @@ importers:
   extensions/llama-cpp:
     dependencies:
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
     devDependencies:
       '@openclaw/plugin-sdk':
         specifier: workspace:*
@@ -1574,7 +1610,7 @@ importers:
     dependencies:
       '@clawdbot/lobster':
         specifier: 2026.9.16
-        version: 2026.9.16
+        version: 2026.9.16(patch_hash=d7c8f595b518c4c749e4787a2e90bfc9330fb0edccfcbdf8ff871787fb9a82e9)
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -1607,8 +1643,8 @@ importers:
         specifier: 18.9.0
         version: 18.9.0
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       fake-indexeddb:
         specifier: 6.2.6
         version: 6.2.6
@@ -1663,11 +1699,11 @@ importers:
   extensions/memory-core:
     dependencies:
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       json5:
         specifier: 2.2.3
         version: 2.2.3
@@ -1678,8 +1714,8 @@ importers:
         specifier: 7.3.3
         version: 7.3.3
       solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -1688,8 +1724,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
       '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
@@ -1701,7 +1737,7 @@ importers:
     dependencies:
       apache-arrow:
         specifier: 21.2.0
-        version: 21.2.0
+        version: 21.2.0(patch_hash=c8385fd9a8af8122fc1787481b5bba21fef95f61dc1a664e5d2c5e0cb9d5fd68)
       openai:
         specifier: 7.35.0
         version: 7.35.0(@aws-sdk/credential-provider-node@3.972.86)(@smithy/hash-node@4.5.2)(@smithy/signature-v4@5.7.4)(undici@8.12.2)(ws@8.22.0)(zod@4.6.7)
@@ -1711,7 +1747,7 @@ importers:
     devDependencies:
       '@lancedb/lancedb':
         specifier: 0.40.0
-        version: 0.40.0(@types/node@26.6.5)(apache-arrow@21.2.0)
+        version: 0.40.0(@types/node@26.6.5)(apache-arrow@21.2.0(patch_hash=c8385fd9a8af8122fc1787481b5bba21fef95f61dc1a664e5d2c5e0cb9d5fd68))
       '@openclaw/plugin-sdk':
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
@@ -1788,8 +1824,8 @@ importers:
   extensions/migrate-claude:
     dependencies:
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
     devDependencies:
       '@openclaw/plugin-sdk':
         specifier: workspace:*
@@ -1908,14 +1944,14 @@ importers:
   extensions/nostr:
     dependencies:
       '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       nostr-tools:
         specifier: 2.25.2
         version: 2.25.2(typescript@7.1.0-dev.20261016.1)
       solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       zod:
         specifier: 4.6.7
         version: 4.6.7
@@ -1924,8 +1960,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
       '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
@@ -2008,6 +2044,9 @@ importers:
 
   extensions/openai:
     dependencies:
+      '@shinyoshiaki/binary-data':
+        specifier: 0.6.1
+        version: 0.6.1(patch_hash=231e04c1ca6a2f66dda30dfe23c1178d2df9fbc2161d9eac7689e3a751a85a9b)
       jose:
         specifier: 6.2.12
         version: 6.2.12
@@ -2049,8 +2088,8 @@ importers:
   extensions/openshell:
     dependencies:
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       p-limit:
         specifier: 7.3.3
         version: 7.3.3
@@ -2122,16 +2161,16 @@ importers:
         version: 2.3.1
       '@openclaw/crabline':
         specifier: 0.1.30
-        version: 0.1.30
+        version: 0.1.30(patch_hash=e20ebba9e5436726475f2e112d9c9322ff7078a0a8068c789716e1e6519b4cf0)
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       json5:
         specifier: 2.2.3
         version: 2.2.3
       playwright-core:
         specifier: 1.64.1
-        version: 1.64.1
+        version: 1.64.1(patch_hash=eedf680682a6840d82c6ad530a60875857aa8c0372785acf8e8e5df9c2e3ac16)
       semver:
         specifier: 7.8.5
         version: 7.8.5
@@ -2265,8 +2304,8 @@ importers:
   extensions/signal:
     dependencies:
       '@openclaw/fs-safe':
-        specifier: 0.26.11
-        version: 0.26.11
+        specifier: 0.26.13
+        version: 0.26.13
       zod:
         specifier: 4.6.7
         version: 4.6.7
@@ -2585,8 +2624,8 @@ importers:
   extensions/whatsapp:
     dependencies:
       '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       audio-decode:
         specifier: 3.12.0
         version: 3.12.0
@@ -2594,8 +2633,8 @@ importers:
         specifier: 7.0.0-rc14
         version: 7.0.0-rc14(patch_hash=c3c4601486630c689ffd1a0e7a34f4b8cf8e7231e41c312ad33afdf4487d8ded)(audio-decode@3.12.0)(supports-color@10.2.2)
       solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -2604,8 +2643,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
       '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
@@ -2622,11 +2661,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/workboard-contract
       '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -2644,8 +2683,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
       '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
@@ -2656,14 +2695,14 @@ importers:
   extensions/x:
     dependencies:
       '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       linkify-it:
         specifier: 6.1.0
         version: 6.1.0
       solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       tlds:
         specifier: 1.261.0
         version: 1.261.0
@@ -2675,8 +2714,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
       '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
@@ -2800,6 +2839,9 @@ importers:
       partial-json:
         specifier: 0.1.7
         version: 0.1.7
+      proxy-from-env:
+        specifier: 2.1.0
+        version: 2.1.0
       typebox:
         specifier: 1.4.1
         version: 1.4.1
@@ -2875,6 +2917,9 @@ importers:
       mdast-util-gfm-table:
         specifier: 2.0.0
         version: 2.0.0(supports-color@10.2.2)
+      micromark:
+        specifier: 4.0.3
+        version: 4.0.3(supports-color@10.2.2)
       micromark-extension-gfm-table:
         specifier: 2.1.2
         version: 2.1.2
@@ -3105,11 +3150,11 @@ importers:
         specifier: 4.6.2
         version: 4.6.2
       '@solidjs/signals':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=421b418083c0218bb54ceb3e12bd0eb74a84e86474ca26cc1f1114abbe58de48)
       '@solidjs/web':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       '@tanstack/virtual-core':
         specifier: 3.19.2
         version: 3.19.2
@@ -3156,21 +3201,21 @@ importers:
         specifier: 1.4.0
         version: 1.4.0
       solid-js:
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       zod:
         specifier: 4.6.7
         version: 4.6.7
     devDependencies:
       '@solidjs/compiler':
-        specifier: 2.0.0-rc.16
-        version: 2.0.0-rc.16
+        specifier: 2.0.0-rc.18
+        version: 2.0.0-rc.18
       '@solidjs/testing-library':
         specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3(@solidjs/web@2.0.0-rc.16(solid-js@2.0.0-rc.16))(solid-js@2.0.0-rc.16)
+        version: 1.0.0-beta.3(@solidjs/web@2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18))(solid-js@2.0.0-rc.18)
       '@solidjs/vite-plugin':
-        specifier: 3.0.0-next.50
-        version: 3.0.0-next.50(@solidjs/web@2.0.0-rc.16(solid-js@2.0.0-rc.16))(solid-js@2.0.0-rc.16)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
+        specifier: 3.0.0-next.51
+        version: 3.0.0-next.51(@solidjs/web@2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18))(solid-js@2.0.0-rc.18)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
       '@types/markdown-it':
         specifier: 14.2.0
         version: 14.2.0
@@ -3210,11 +3255,8 @@ importers:
 
 packages:
 
-  '@a2ui/web_core@0.13.0':
-    resolution: {integrity: sha512-4Clpksne0RY9KAheQoPoTwVDJ+6XI0Es2yqVME/PN0aWQ1321Wih69SEr8Nkc+7uKMyV5FlK32o88uoyM7ZBCw==}
-
-  '@agentclientprotocol/claude-agent-acp@0.93.0':
-    resolution: {integrity: sha512-Uec78bLVFgzXrJMxzg8b5r3WkgIEeo+yv2MrQBTAEXFK5E4Jzzd1XPbN3Khsd9EFIewWkbVOZ5PeStdPykaCHQ==}
+  '@agentclientprotocol/claude-agent-acp@0.95.0':
+    resolution: {integrity: sha512-9ocOKHfeGrSwXshLdaweYvRSdzy5fltbk+WiG2t7bQXW+882hiyrvZzUOhZ9k8ItwdLfpXcnytVlyDbjMdHDIA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -3227,6 +3269,11 @@ packages:
     peerDependencies:
       zod: ^3.25.0 || ^4.0.0
 
+  '@agentclientprotocol/sdk@2.0.1':
+    resolution: {integrity: sha512-v4E/NcBTGFEKmorGso8ysAjJTkNh5UMJPP4aDznyMNmnP9t10g/aCCo/Djy7RYaYZy5ZROFK3G5cEj9tDgGOTQ==}
+    peerDependencies:
+      zod: ^3.25.76 || ^4.0.0
+
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
@@ -3234,52 +3281,52 @@ packages:
   '@antfu/install-pkg@2.1.0':
     resolution: {integrity: sha512-sdg9NxU3zR4Mnawfbc/x6GB5Wf17WYud5qOuEuxXjaKpYpMkISSJEjItGebXJ2bQ4DIcly4NYH23mtkGJjvKUw==}
 
-  '@anthropic-ai/claude-agent-sdk-darwin-arm64@0.3.300':
-    resolution: {integrity: sha512-+pFKo4x5S6j4v+UTVZZFiLoJO7PMLVPNhIUBalk/RvMhcaN33Ubgk4aRAZpJmkxCcGMN6rWCevYhgT0nXkqytg==}
+  '@anthropic-ai/claude-agent-sdk-darwin-arm64@0.3.309':
+    resolution: {integrity: sha512-qC93iDGEioaXqWsYazcZzNv3hd8d4VHkCFgb+AzvbkCWOzZHnRu1EqF4Iz5kCTLDs4VdMvCa1NkzlUwtTedBVw==}
     cpu: [arm64]
     os: [darwin]
 
-  '@anthropic-ai/claude-agent-sdk-darwin-x64@0.3.300':
-    resolution: {integrity: sha512-5mJ0Fdl85HQvFJM6XdFJry68vjEt5XyJ5mVvVO3G6U9R4a8rMJDH7Ypik3jlCW2eaB/mjbJVSI2ffV8ClaYA6A==}
+  '@anthropic-ai/claude-agent-sdk-darwin-x64@0.3.309':
+    resolution: {integrity: sha512-RvP0UOcYxn42c1lgByoMufHaMOH86U2ThGGFupOxBKATY4Q6WJd6M1CukQ/qygfgJ8lcxvK8GOOd3SIny4kQ8Q==}
     cpu: [x64]
     os: [darwin]
 
-  '@anthropic-ai/claude-agent-sdk-linux-arm64-musl@0.3.300':
-    resolution: {integrity: sha512-du/RXcLDhWSMlpj3UoR9gHHb65uYOAHVQtQVtKtMyUYv4pC6M6zkY3GAqQFkW48I7wBlrHAFmScdD6nUDl005A==}
+  '@anthropic-ai/claude-agent-sdk-linux-arm64-musl@0.3.309':
+    resolution: {integrity: sha512-14ZD9hdUeobw+jr166YvCZyZwSYG3hDWi5S4yQxpSCrRuY/1z4Kl1AfymUlugiN3UT4Q1rif32K6GnjRJBvQdA==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@anthropic-ai/claude-agent-sdk-linux-arm64@0.3.300':
-    resolution: {integrity: sha512-zTl6mMnIDEaEEWebiwmZw+k3Sgi6zHlZcZDvrb3VlHaX1Ru5iikdWt+PS36tzJtrSnwX0XBV0EO8x1qqC2TmhA==}
+  '@anthropic-ai/claude-agent-sdk-linux-arm64@0.3.309':
+    resolution: {integrity: sha512-+8rQwzycuXTW2e/C+yotvP/SDiEDHxItdPvIriGAf2ixh7nPRjVuzHOj1tamgVO0J8nmpPvIAO4edzJ7VZCcAg==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@anthropic-ai/claude-agent-sdk-linux-x64-musl@0.3.300':
-    resolution: {integrity: sha512-ncvILYs6HFkGkhec5fmhkVl57gZErqJNhv4YSpmLx5kIBL1vPzf666sG3VgApLUY74rAJ3y/vyr1e4DJBB6nWg==}
+  '@anthropic-ai/claude-agent-sdk-linux-x64-musl@0.3.309':
+    resolution: {integrity: sha512-9ViOt4MGMiE2h8V+JUPR5l9F0ZTFuhKC3jawIL/MrMfYY1m2Gt3gcMuP7h7YK914a4tmpXrmITWrpTOu1WOZQQ==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@anthropic-ai/claude-agent-sdk-linux-x64@0.3.300':
-    resolution: {integrity: sha512-sd2IUPPTVYiN5YPoC2InyOJy0fEt9HBwBZbtVobhugO0KWACMPzrYefLD/yu1uJsf73+tBnVQRfgb/btXukd8Q==}
+  '@anthropic-ai/claude-agent-sdk-linux-x64@0.3.309':
+    resolution: {integrity: sha512-96G8/uTArlvTTg0qGtiP36W76Ug/YT0gMBh8KX7J2RigdOTrk6QkHtUeCzrw6yff5hEIzecN7EWNw6uh9USo4A==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@anthropic-ai/claude-agent-sdk-win32-arm64@0.3.300':
-    resolution: {integrity: sha512-TKH6bbbh4fUMhJycOun1AzOXPmNQ6vvsvWLMVxVsCca8Ro3aAo4zfdfniOjEktEDMUT53v45/fMe6Ca5/rtyrQ==}
+  '@anthropic-ai/claude-agent-sdk-win32-arm64@0.3.309':
+    resolution: {integrity: sha512-lDsmw5hguDF7KNMG2OvvKlG0Zgs9bKlrX9Gs2Rv/NjLVl0PIy1TUsh7byOsUR4pXwoMU1toyU1CKqBc/Au8hHw==}
     cpu: [arm64]
     os: [win32]
 
-  '@anthropic-ai/claude-agent-sdk-win32-x64@0.3.300':
-    resolution: {integrity: sha512-VXY2/y9/3psK2Dd4H+s9m6J5HfkvC3g0fYH4KGeOdbko2LYWmBmIk8E9NsjUVsKL7oN//G2I82+yAZdie5JuDg==}
+  '@anthropic-ai/claude-agent-sdk-win32-x64@0.3.309':
+    resolution: {integrity: sha512-otGHQimz6F++6SajGqSAKBclRPGTn60cx+8u3dnhMa5yovKZ5SgChFgstFsiDIWr/ZBqpJysvFemSgHX61mlmQ==}
     cpu: [x64]
     os: [win32]
 
-  '@anthropic-ai/claude-agent-sdk@0.3.300':
-    resolution: {integrity: sha512-3NGPEUj+VTMQAQ0vaUUQtrce6rNb9a4XhY8QKIOLUp9mDkdbwrrjjD9oMKcDpcLhFKqZdTc02RBUo55GrbY9CA==}
+  '@anthropic-ai/claude-agent-sdk@0.3.309':
+    resolution: {integrity: sha512-Tou0fXBkxKJDcgT09v3Iv/Jd7bNgapgfAiHxGPctAADPFQhidfhZbcv7at1cVL0Lon5sbs+OzP/pEOigw2TI0A==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@anthropic-ai/sdk': 0.135.0
@@ -4668,15 +4715,6 @@ packages:
     resolution: {integrity: sha512-AHCtmdgcVDElRLlrR8jxSracF4beWholl3Ywnl6TrPgEiSYH81fSovgWVO/LbyN0tlGidCzJMAsOLXNddF5FGg==}
     engines: {node: '>=22'}
 
-  '@lit-labs/ssr-dom-shim@1.6.0':
-    resolution: {integrity: sha512-VHb0ALPMTlgKjM6yIxxoQNnpKyUKLD04VzeQdsiXkMqkvYlAHxq9glGLmgbb889/1GsohSOAjvQYoiBppXFqrQ==}
-
-  '@lit/context@1.1.6':
-    resolution: {integrity: sha512-M26qDE6UkQbZA2mQ3RjJ3Gzd8TxP+/0obMgE5HfkfLhEEyYE3Bui4A5XHiGPjy0MUGAyxB3QgVuw2ciS0kHn6A==}
-
-  '@lit/reactive-element@2.1.2':
-    resolution: {integrity: sha512-pbCDiVMnne1lYUIaYNN5wrwQXDtHaYtg7YEFPeW+hws6U47WeFvISGUWekPGKWOP1ygrs0ef0o1VJMk1exos5A==}
-
   '@lydell/node-pty-darwin-arm64@1.2.0-beta.15':
     resolution: {integrity: sha512-6TSBbzdcLiNTHl1mTuzflqXrkmcC36USVGvERoDgvHk2ItEDaMaFZuAJ1CqPmwYj0DyhCS16TVS8OGK9xZnjyQ==}
     cpu: [arm64]
@@ -4904,43 +4942,43 @@ packages:
     resolution: {integrity: sha512-3zcN5Q3yEmeyxXBzqB6fXPQFzYa2ROsGFSr69W0ArXIAGJqxl/aFECOVPD2kbkYPm0U/EHxFKgclK3UA9WQg5A==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
 
-  '@openai/codex@0.162.1':
-    resolution: {integrity: sha512-NWZdi/kxyjv/8EUGFupziGU38YyleugZRM4JXgY5XFH7FUmaFA33NZS2Bmq0HPazf7S3jJQQWsZ/jAK9jsrV3Q==}
+  '@openai/codex@0.164.0':
+    resolution: {integrity: sha512-TWj7UGyPRe3Pj/A3ddNAxs1te3a/W/xAd+J0LHrrFTmsSfahGMOLF/vn88D3QCIgAT3B1rm1y/Z3NYE0rx6cZQ==}
     engines: {node: '>=16'}
     hasBin: true
 
-  '@openai/codex@0.162.1-darwin-arm64':
-    resolution: {integrity: sha512-YVXpg57itBuQxjofay3KDF5UbnZF4Y1ZmNFzUCz0ZQiQN+DndxOjN5V87rnXvPaC4qCPO2El74DzewoBP8JyPQ==}
+  '@openai/codex@0.164.0-darwin-arm64':
+    resolution: {integrity: sha512-pDizgOUAtq3/k3AbUFHbaU19WpYKCja+oFpNSTLKrDQj4lTUNSDuTPJip4uQVn2/1EipQdpQrGMOQBVuI1znAA==}
     engines: {node: '>=16'}
     cpu: [arm64]
     os: [darwin]
 
-  '@openai/codex@0.162.1-darwin-x64':
-    resolution: {integrity: sha512-0/WHRhbUnM1wAjfyCO54Q8s4vQRxLVBbqW6XuQf7rZTEMTYPKRIQU9aPeRgjG653ZCSjtBrslWQ+G9urY9CksQ==}
+  '@openai/codex@0.164.0-darwin-x64':
+    resolution: {integrity: sha512-lIe+udnguPGzBezkgbkj2Eaz0YqOhNXT7jja136Fj0sXfI+UKNS2icmaK14GcoRAgeVEpDTtC1ftamWBPmD1zg==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [darwin]
 
-  '@openai/codex@0.162.1-linux-arm64':
-    resolution: {integrity: sha512-Ss7W/SrKtQFNaMtSojNoiykJgX+iDC8daM+YrcvgmJADtQPk0cd3w6Dna4CYH2CYvf9nQranj69fpcTzZ3sQIQ==}
+  '@openai/codex@0.164.0-linux-arm64':
+    resolution: {integrity: sha512-LL5iTQjyDL4YRX44EWqhIfEQ5uGnmgxkQBJSxjZSeJ8L1Og83pdlzUJW/PRJ76oaVwOVgh6HXwuPEiBNEHU4lg==}
     engines: {node: '>=16'}
     cpu: [arm64]
     os: [linux]
 
-  '@openai/codex@0.162.1-linux-x64':
-    resolution: {integrity: sha512-cjK2mdHIfEepZ1lQ1MX3aTQC+8ncIsvnacl/6vI2dIIcfP8/MrhTQ2+qRlkXFNDzJSj1d36quIszP+3/4CUJWQ==}
+  '@openai/codex@0.164.0-linux-x64':
+    resolution: {integrity: sha512-XLAoaWsGOT2khzl+P4FYDPTkzAr9W0VFXFaVkqlFdkM0soa1gH/4S0wSD57Ek3HHwkirAEGz2/Mwehseh+l5Mg==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [linux]
 
-  '@openai/codex@0.162.1-win32-arm64':
-    resolution: {integrity: sha512-teVVACnEcupkR6XSmUQKwlGg/oA15d1DQDPVSoAfilHgctPEpTi5y11jYS6JhJO+AFnYM84gyo5SOS5vlnCQSg==}
+  '@openai/codex@0.164.0-win32-arm64':
+    resolution: {integrity: sha512-Zkzt8HNmB/vOnlDo5D7IOlrt5rHaxYQB7iGbNP7bHcXZtrk6gaD7UriwaieGYJpcf8DqAT/0tqzY4xbs8ZwbmQ==}
     engines: {node: '>=16'}
     cpu: [arm64]
     os: [win32]
 
-  '@openai/codex@0.162.1-win32-x64':
-    resolution: {integrity: sha512-dfl4MhHuEi0ARKyNmrTxk+RQmsWNCQAoVLUtrYq+yrW1C8P2sg5ziwgHUUACHjYLKuACV7ARH5Nq5pnCz3GlaQ==}
+  '@openai/codex@0.164.0-win32-x64':
+    resolution: {integrity: sha512-urWPhwh9YavuoAPIkmVYKBTtd5OtGVL4Ki0Fb28dhK/Mz6Pt4LSy+gbRrZFz5+RXrw9ubvXuXDCcd8beYcWhDg==}
     engines: {node: '>=16'}
     cpu: [x64]
     os: [win32]
@@ -4950,122 +4988,72 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  '@openclaw/fs-safe-darwin-arm64@0.22.0':
-    resolution: {integrity: sha512-u7HSbjJAIiWZ0iFJzoXymMJUn0EMzJGMFtX7aIbQk2W6Sz+UxTuXszJk79yYNF46kxKXjlu9Vkx3oazT/6mE5g==}
+  '@openclaw/fs-safe-darwin-arm64@0.26.13':
+    resolution: {integrity: sha512-R3mXijsyLrFVRiLjNlpEcmN9SZWMVd7keZWtVngGp19C56lHm/ye5/UJV2rICe5xsuxXM6q0iGKXkcQdUc9uKA==}
     engines: {node: '>=22'}
     cpu: [arm64]
     os: [darwin]
 
-  '@openclaw/fs-safe-darwin-arm64@0.26.11':
-    resolution: {integrity: sha512-MINq2upOYwjhKQIxIbuE9mUgEGz5r2516fONAvz+jHGd3vkuA52CV4z3k7jQn0yYYH9qFzG5LWr6WIW80U0T4Q==}
-    engines: {node: '>=22'}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@openclaw/fs-safe-darwin-x64@0.22.0':
-    resolution: {integrity: sha512-rkcMsgbQQzNFcEjq74J0hbwMoHlVXtQzC5owdAU6QG1O2UTGIPROpwNXmo1Phmz4tSTXwCKlH5vxxSgSHMv8Mw==}
+  '@openclaw/fs-safe-darwin-x64@0.26.13':
+    resolution: {integrity: sha512-s0ZKDbVIQCjUpgwxA3RMmt7UTyGQcWmkicxC7DdOq/hqLwzCRx74nb0zDrbuBHZCW9y6lF6PeqPfppPtwXqjDg==}
     engines: {node: '>=22'}
     cpu: [x64]
     os: [darwin]
 
-  '@openclaw/fs-safe-darwin-x64@0.26.11':
-    resolution: {integrity: sha512-t1wLmN2paH7sd7wZVrzmu9NJpeBb63N8KU7ALJG7CwzuqSTmK7R9GN0mq4Y57/U+yEb1BEPK9Ktlde5bSO+xtg==}
-    engines: {node: '>=22'}
-    cpu: [x64]
-    os: [darwin]
-
-  '@openclaw/fs-safe-freebsd-arm64@0.26.11':
-    resolution: {integrity: sha512-KfvtzDypvt2W/n9GxDcahTwS8GQu1HSzEn+4A5QSZeJiQCUtgKV4J7j9zGETbgKm++3BmkXnh1D3oLF5h6dn7A==}
+  '@openclaw/fs-safe-freebsd-arm64@0.26.13':
+    resolution: {integrity: sha512-doLvVPENhF5tUCKSYRctHt5WN27YP/QwQoeCzI88Nfh27r91KrXIsyFWohffou1hHlYX3ucDgDqp129Xz/ccNg==}
     engines: {node: '>=22'}
     cpu: [arm64]
     os: [freebsd]
 
-  '@openclaw/fs-safe-freebsd-x64@0.26.11':
-    resolution: {integrity: sha512-/NHR9ro2w8/4f5281Jw9RKqXeSxEboaCz5Q5PXcwyACDv9n4Dx6RcgJbGTdLNi56QeSD1r5vmSqays3UvekHGQ==}
+  '@openclaw/fs-safe-freebsd-x64@0.26.13':
+    resolution: {integrity: sha512-rYYIKwy7sSQXSVgHUn8gzJrIQU4TFQ5Issjs5LvdhNmCPt9rAa9GYZWZ2HMH+sQCTeeTM4G9Jt39Q3cZkKI0gg==}
     engines: {node: '>=22'}
     cpu: [x64]
     os: [freebsd]
 
-  '@openclaw/fs-safe-linux-arm64-gnu@0.22.0':
-    resolution: {integrity: sha512-nwZl03/waPnBh7lKFnDiF7RfT85D9Ngbw23LL7jb2ilXu32zge4gqufYYIoLXk0EGL3bLkwssgnpxy7ErRQWow==}
+  '@openclaw/fs-safe-linux-arm64-gnu@0.26.13':
+    resolution: {integrity: sha512-2rWPoeG5f+H7/CbVv+Q2SEW4xOGZfwtLzZ4kZA2xveOb4EhiU7jSZjfCwaf7/jVGIcwiC5SEvL1cHdTyORwULg==}
     engines: {node: '>=22'}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@openclaw/fs-safe-linux-arm64-gnu@0.26.11':
-    resolution: {integrity: sha512-zsiOkjnR5wPS6uLdE5IFSnv8J/7StLk9V6KxP7lMhK3Lg4BtVXSMMwslqzuHPOla/KEtCsPQrXuxuxzHbiRpZw==}
-    engines: {node: '>=22'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [glibc]
-
-  '@openclaw/fs-safe-linux-arm64-musl@0.22.0':
-    resolution: {integrity: sha512-2Gvr1vUvSpbdkAeUuYU8DmgzRGPx88V4quX1AWNZdFuip9SsGkbaBLx3kZlR4OFlEo6HxgGPS7KZanaG17nKSg==}
+  '@openclaw/fs-safe-linux-arm64-musl@0.26.13':
+    resolution: {integrity: sha512-K9bhtXJxH6syGcqJ5bh0+qKn1T1c8p1p+dEFjta3CMy9sHtqpbPjSOw3DfdjpVz5WUtahkQm1nlV623eSRSIOg==}
     engines: {node: '>=22'}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@openclaw/fs-safe-linux-arm64-musl@0.26.11':
-    resolution: {integrity: sha512-7at4863FvZepvkIsxL15ZX8hoNaOiBHjIUL0TFFnXu86ri0c/3OQmrJJrQ4giDAIUgAYP3cEfAsVBQvgnoGUaw==}
-    engines: {node: '>=22'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
-
-  '@openclaw/fs-safe-linux-x64-gnu@0.22.0':
-    resolution: {integrity: sha512-xTb3icn5X+SREL30NNXy1ZgjkGGWanRm9Wsk5pGm96Iy1DWY18HRyjnhDHCthZ402JiVBXCJR/8nsdHI0loaRg==}
+  '@openclaw/fs-safe-linux-x64-gnu@0.26.13':
+    resolution: {integrity: sha512-nzZMTHFPaHXHQH9HXX5YoN/OEivPpmBlcWrSErK8O3iB0E05uiOG8IYIHgsZZUzLwsVdYbvrIYc6uVwxRR/Qfw==}
     engines: {node: '>=22'}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@openclaw/fs-safe-linux-x64-gnu@0.26.11':
-    resolution: {integrity: sha512-51q+Winx1r4WRrK9iEfdXsaXkpfWcm8DHRfQA3VImPgsKACdqbDr8KE3CDsQzS5Q9mK7cdxsD1pz646ifCE9Nw==}
-    engines: {node: '>=22'}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
-
-  '@openclaw/fs-safe-linux-x64-musl@0.22.0':
-    resolution: {integrity: sha512-oOxSQNtPxEJRDUsydXX4TVw/vGXKxUR1bW8wieEsxlhJob+fbRcSZb6YyznPkGiirhcpCwwXgQwQbaD+9Ho9Hg==}
+  '@openclaw/fs-safe-linux-x64-musl@0.26.13':
+    resolution: {integrity: sha512-zoW3n+ovzWItj+KvM7UjN5XNRbNkTIIVVy+wJK1yRpRMd8n12qTTj03+a0hHpgzL47ZORfSO1cCbiPv5231Vgw==}
     engines: {node: '>=22'}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@openclaw/fs-safe-linux-x64-musl@0.26.11':
-    resolution: {integrity: sha512-OynAlJ9YJlMLcvuS+hxNZbsKo2sAOzPfByNJ69FR+PPJGDF3+UAXJuZOw09x2jO7GD5grse90Y5F/5Pkn2lsag==}
-    engines: {node: '>=22'}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
-
-  '@openclaw/fs-safe-win32-arm64-msvc@0.26.11':
-    resolution: {integrity: sha512-5ZVExST/RvOSeKIaEmhIo3nL65fgO89tebd2GHq3O6iu7ZccG46GasjpI4hWfvYFUZr/uJzHBhhvIpY08gmUWw==}
+  '@openclaw/fs-safe-win32-arm64-msvc@0.26.13':
+    resolution: {integrity: sha512-aw9dhWaLuCiqykCONI7o5Suv3v61cuDQYSX/oe3UQlZHlnz4oq6j7JiHr48IdmgmgW5n9/k4wIBX5VYxeoG1PQ==}
     engines: {node: '>=22'}
     cpu: [arm64]
     os: [win32]
 
-  '@openclaw/fs-safe-win32-x64-msvc@0.22.0':
-    resolution: {integrity: sha512-V0MR0A3nYbvJofxdcKfgp8sU46UDAESV2wxh4w4+coxPkfEFfedJa2tz0L1Fc1wFEcZPXIbywXNhOy2qF6QZug==}
+  '@openclaw/fs-safe-win32-x64-msvc@0.26.13':
+    resolution: {integrity: sha512-JQtn+zWFC74cksnynI/IK4b4jEmk64P4qUrGSlVLrEb2jJOngopHiVGq9gNB1FmvpyG7SttBg6wjvUfXe2aHeQ==}
     engines: {node: '>=22'}
     cpu: [x64]
     os: [win32]
 
-  '@openclaw/fs-safe-win32-x64-msvc@0.26.11':
-    resolution: {integrity: sha512-RsbeRLxB1kS1hDU0y8DqiyyxtfutrVJ5alnejF32bH2F+HHZ/FnCKFhmf75+w94Gua89+iWOCmN2/7ReV3QJuw==}
-    engines: {node: '>=22'}
-    cpu: [x64]
-    os: [win32]
-
-  '@openclaw/fs-safe@0.22.0':
-    resolution: {integrity: sha512-CW/T0NUcdn8PLVBgyXUbIn90a16uhP3YtKdd+eqJjmg0FR01KCCjCI3PxrvK1ygrUb/BfQsJJe+hXA9+/0rqKQ==}
-    engines: {node: '>=22'}
-
-  '@openclaw/fs-safe@0.26.11':
-    resolution: {integrity: sha512-IyawPgfW8c5Ski+BmPAPm87W4smx4X33RloW6xYMTNsYDYleMyMXhJUmspnGnQr3NWFo42W5dt3T0x9OUwb2mA==}
+  '@openclaw/fs-safe@0.26.13':
+    resolution: {integrity: sha512-wmHGL0pKcYN8oO+RlvisaZibXDUOQVj6mNQ2VVIoicsqTMvpgzZGX2U4zu8yZtb32MmvPLg1Y9bRQCcePMoEyw==}
     engines: {node: '>=22'}
 
   '@openclaw/libterminal@0.3.10':
@@ -5786,9 +5774,6 @@ packages:
   '@postalsys/vmc@1.1.5':
     resolution: {integrity: sha512-WwleGWC51o/VWQFTId6xMiO9aqkIVCM7ODy6UWfzFoQ6UzXewsNrm3ANa4HbBcyYaTK6YPvp4Gt0U+1cXLTbzw==}
 
-  '@preact/signals-core@1.14.4':
-    resolution: {integrity: sha512-HNB6HYeYKhQbJ1aKl+YRjrS4+QWHLKX6qKoUsfS/m0vqzsVaEBiZiaKbG/e+NKk2ch5ALQr/ihWaMHxiCuuWHA==}
-
   '@quansync/fs@1.1.0':
     resolution: {integrity: sha512-qAPG/t3HqML1TlN7sY/pTbEjzFVAKsMjNNMGheyDosro+kT4iw2KCUoHcVdmliwWjorm4elZbgNQyU2eD97eDg==}
 
@@ -6229,8 +6214,8 @@ packages:
     resolution: {integrity: sha512-V+NlX5931RwVamZhhEfZekMdcvXDKdMAmHW1AuGaykVQsNyBOq3bpmGpoKRBDCYgFWKIufJ0Dcg3m4cYhvUy6g==}
     engines: {node: '>= 10'}
 
-  '@solidjs/babel-plugin@2.0.0-rc.16':
-    resolution: {integrity: sha512-BGktwp90c5+acKPg3AhuoJlVxmY2FMqLx4TaHPtz50hU7jzAwhmuRURdK4eteTeA+gBtNN/tqunK67At7I1HEA==}
+  '@solidjs/babel-plugin@2.0.0-rc.18':
+    resolution: {integrity: sha512-jgwUfRB9jZrIaFxjgzbr6Di7H+jSVEk7j+ZtYHLWSTuF1UnRct6wrfrGQOU9B9WQZa8fR0KWNkdLlb6zfqfeZw==}
     peerDependencies:
       '@babel/core': ^7.20.12
       '@tsrx/core': 0.1.63
@@ -6238,42 +6223,42 @@ packages:
       '@tsrx/core':
         optional: true
 
-  '@solidjs/compiler-darwin-arm64@2.0.0-rc.16':
-    resolution: {integrity: sha512-XS2YYSiNLfxK3cTXaTs4GWz9HU4jjezL+G3rWcGP7A7H3jnTHukbQSV2CoslH4ZD5GrcSyllfj/LrW9FC0Xv9g==}
+  '@solidjs/compiler-darwin-arm64@2.0.0-rc.18':
+    resolution: {integrity: sha512-QXbaI9bCW4WGd3s5ZJIzI8quMTaMaWryoq/u9PD42apGCX1Md3B/foFU7UiW7jq51YHaRWCkf1iQkd8Ee5GI7w==}
     cpu: [arm64]
     os: [darwin]
 
-  '@solidjs/compiler-darwin-x64@2.0.0-rc.16':
-    resolution: {integrity: sha512-m/mr1+w2MpF9g+xF+Df5RABV637OFZF0KteCRM/iWfr15JRhn3qaMTl8SOrJ0vYng+b4XiRb6clUdcOCg9Imew==}
+  '@solidjs/compiler-darwin-x64@2.0.0-rc.18':
+    resolution: {integrity: sha512-Y6x899jJWsnTwoQqqpWyjMp+/Dz35fPXUHQKrcQesbUajXWsljPY+dT6XLDMpEILrMSxyyBPQ9lmRTRE7nJLGQ==}
     cpu: [x64]
     os: [darwin]
 
-  '@solidjs/compiler-linux-arm64-gnu@2.0.0-rc.16':
-    resolution: {integrity: sha512-9ky/nAbWT587MQ094B+5CtMuA3NuLN2Il44yjVxikyAMPrSVoAvW53AFNq28reKSaLyzUcu3ajlllNXN4zBJig==}
+  '@solidjs/compiler-linux-arm64-gnu@2.0.0-rc.18':
+    resolution: {integrity: sha512-bs7rXGsC+1rVk5WadxOyaxdux8Mx2vjEUdX8UnhTQc37uCHBCI5mLuYICoFX9qXdINZK9H8VrkgT2WJxVN6ypQ==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@solidjs/compiler-linux-x64-gnu@2.0.0-rc.16':
-    resolution: {integrity: sha512-w4R5FBh8wj1hDBTRGghev4Izb3mY5WQJKkh3t12LbUYv9Q/RgQLRJ0HCdgusA0M3pbmZa9+tNo/jC+kOcGkCcA==}
+  '@solidjs/compiler-linux-x64-gnu@2.0.0-rc.18':
+    resolution: {integrity: sha512-91+hS2M3HJdZQ/b44XJnFhpSjO9JdmAefwIQPz+iBvbkafNW6yvVjkiCd+BKZ106tJ1HtHnbj2OSQwH7+cxhyw==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@solidjs/compiler-wasm32-wasi@2.0.0-rc.16':
-    resolution: {integrity: sha512-waYVk1KOGfAAS0e2Y2F/g2pPxK5SKZGY8o9MzpYvw63vdohf2aM4dOztQ5PXhdj9EwBsNkCfs108LXQxmKHyZA==}
+  '@solidjs/compiler-wasm32-wasi@2.0.0-rc.18':
+    resolution: {integrity: sha512-5JuKtcdNjVUBgkz2lyTuVen4K7/3ASwaJg6vp7zbnsM2ZapcQXzlIhP3zee8FBBhGgvdgbf18L+u2B3H6T88DQ==}
     engines: {node: '>=14.0.0'}
 
-  '@solidjs/compiler-win32-x64-msvc@2.0.0-rc.16':
-    resolution: {integrity: sha512-EruXUf1LlFl/Wz1API7+EgKrrjwGWnvc5LsRBOIDZeL4lijVxFUWuhu2If+Mwi6zFDojIImJau9o155n+3tfKw==}
+  '@solidjs/compiler-win32-x64-msvc@2.0.0-rc.18':
+    resolution: {integrity: sha512-DOfsflkkvZ4XRzcgKPTpthdtDB4syTr+8ci6ZZkcfexi2TaxiWROIP7heMFlBBYrSYINW8ct6eOjgkFUom4kqQ==}
     cpu: [x64]
     os: [win32]
 
-  '@solidjs/compiler@2.0.0-rc.16':
-    resolution: {integrity: sha512-WRnqxb3LHvR8XiQuETxI++BVdLZOPougnN50kZhwiHLODIc4orUFFlx6hC0Jt2aurO5LZCjSxStGEHVHeo7maQ==}
+  '@solidjs/compiler@2.0.0-rc.18':
+    resolution: {integrity: sha512-I9wQy6RQeOeDvbxDxco+hlDIK5UBxnVNdBEc2LnaC+bkSZwQX7S5ebAohPGhxfsEChLD++u9A8NBkFd9vSVM7A==}
 
-  '@solidjs/signals@2.0.0-rc.16':
-    resolution: {integrity: sha512-WPMb8FuAVKyzF6sIgZn/c89V69VS3R4DtCnOoaS1ZXy5Uos9K/8yrclyQkG6kqkN3ubtPiPnaPfdjt/jfsi4qQ==}
+  '@solidjs/signals@2.0.0-rc.18':
+    resolution: {integrity: sha512-pzYahnM93EpDN4xZF1EefdjPE6Buuu/90/kiaLOjUFhPd3H0W6J9R8lIF+kkD1Z78LW1OTHciRY5MCqpYj5iSQ==}
     engines: {node: '>=22.12.0'}
 
   '@solidjs/testing-library@1.0.0-beta.3':
@@ -6283,14 +6268,14 @@ packages:
       '@solidjs/web': '>=2.0.0-0'
       solid-js: '>=2.0.0-0'
 
-  '@solidjs/vite-plugin@3.0.0-next.50':
-    resolution: {integrity: sha512-eCtI4SwZOCnhwFist0WpUtAf/HPQ26z74XOtzm3z41FFJdKprHEMEVKw8NKfViwp9mecMK4FLZSm6k6OY4yBsA==}
+  '@solidjs/vite-plugin@3.0.0-next.51':
+    resolution: {integrity: sha512-ffpFNYX1z3mGjr95nM3hwo0R3P489FjVnYP5YCOorw+N8grCo+Ay1hGx68H00n5OAC7uGd/7B4GsU1HnA/VU0A==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       '@solidjs/start-devtools': ^1.0.0-next.2
-      '@solidjs/web': ^2.0.0-rc.14
+      '@solidjs/web': ^2.0.0-rc.16
       '@testing-library/jest-dom': ^5.16.6 || ^5.17.0 || ^6.0.0 || ^7.0.0
-      solid-js: ^2.0.0-rc.14
+      solid-js: ^2.0.0-rc.16
       vite: ^8.0.0 || ^9.0.0
     peerDependenciesMeta:
       '@solidjs/start-devtools':
@@ -6298,11 +6283,11 @@ packages:
       '@testing-library/jest-dom':
         optional: true
 
-  '@solidjs/web@2.0.0-rc.16':
-    resolution: {integrity: sha512-dWbRvG8PlcXelWYdoOmyJwItFPrPSsppUbOJ/RLrQhesQD3sEL9BTRUi8vdXyi+rdA8klYvxJtB43/BTqxJcbw==}
+  '@solidjs/web@2.0.0-rc.18':
+    resolution: {integrity: sha512-qtxuskii4N/gMipmg94yfPSJ0djwVWF+Elrdhtdb/8ZThvPc6RI/edY6guEMwdx7OADa1f9cQ0MwQe7kDW+Vwg==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
-      solid-js: ^2.0.0-rc.16
+      solid-js: ^2.0.0-rc.18
 
   '@stablelib/base64@1.0.1':
     resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
@@ -7055,8 +7040,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  acpx@0.19.6:
-    resolution: {integrity: sha512-DLizr2p364k3AN6z7a6TEGii0y60clW9nTDtpWhCX/qmwsLwuTQAgwPnDshA/YFtICylBK+cOb6+NmSRa7GKTw==}
+  acpx@0.21.0:
+    resolution: {integrity: sha512-+X1QZgsbO/9Zuk1QKMzcwdAEsvZ/4Ta4IQpeFwTmxY68qLjX82jFTAPXB51SWcH8galIYm81xMHxSZgxc06Ipg==}
     engines: {node: '>=22.13.0'}
     hasBin: true
 
@@ -8968,15 +8953,6 @@ packages:
   linkify-it@6.1.0:
     resolution: {integrity: sha512-wJ/TwpSDTLepCrQoYWYIExIKg5Zchex2Nn5yk2mFnB+6PtdkHtyLx742md9csRjjOnGkKIS/RrbY7l8D6gT9Vw==}
 
-  lit-element@4.2.2:
-    resolution: {integrity: sha512-aFKhNToWxoyhkNDmWZwEva2SlQia+jfG0fjIWV//YeTaWrVnOxD89dPKfigCUspXFmjzOEUQpOkejH5Ly6sG0w==}
-
-  lit-html@3.3.3:
-    resolution: {integrity: sha512-el8M6jK2o3RXBnrSHX3ZKrsN8zEV63pSExTO1wYJz7QndGYZ8353e2a5PPX+qHe2aGayfnchQmkAojaWAREOIA==}
-
-  lit@3.3.3:
-    resolution: {integrity: sha512-fycuvZg/hkpozL00lm1pEJH5nN/lr9ZXd6mJI2HSN4+Bzc+LDNdEApJ6HFbPkdFNHLvOplIIuJvxkS4XUxqirw==}
-
   locate-path@5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
@@ -10076,11 +10052,6 @@ packages:
   recma-stringify@1.0.0:
     resolution: {integrity: sha512-cjwII1MdIIVloKvC9ErQ+OgAtwHBmcZ0Bg4ciz78FtbT8In39aAYbaA7zvxQ61xVMSPE8WxhLwLbhif4Js2C+g==}
 
-  redos-detector@6.1.4:
-    resolution: {integrity: sha512-lPlka1rEH6kK42gtgokvvxMmpAvyc28DcRjQbGxeP5RJsJWgAduBOdGedVCDPdSyCr4ay/JDxq3nGYsJZyt8tA==}
-    engines: {node: '>=16.0.0'}
-    hasBin: true
-
   reflect-metadata@0.2.2:
     resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
 
@@ -10092,10 +10063,6 @@ packages:
 
   regex@6.1.0:
     resolution: {integrity: sha512-6VwtthbV4o/7+OaAF9I5L5V3llLEsoPyq9P1JVXkedTP33c7MfCG0/5NOPcSJn0TzXcG9YUrR0gQSWioew3LDg==}
-
-  regjsparser@0.13.0:
-    resolution: {integrity: sha512-NZQZdC5wOE/H3UT28fVGL+ikOZcEzfMGk/c3iN9UGxzWHMa1op7274oyiUVrAG4B2EuFhus8SvkaYnhvW92p9Q==}
-    hasBin: true
 
   rehype-recma@1.0.0:
     resolution: {integrity: sha512-lqA4rGUf1JmacCNWWZx0Wv1dHqMwxzsDWYMTowuplHF3xH0N/MmrZ/G3BDZnzAkRmxDadujCjaKM2hqYdCBOGw==}
@@ -10234,15 +10201,15 @@ packages:
     resolution: {integrity: sha512-3NnuWfM6vBYoy5gZFvHiYsVbafvI9vZv/+jlIigFn4oP4zjNPK3LhcY0xSCgeb1a5L8jO71Mit9LlNoi2UfDDQ==}
     engines: {node: '>=10'}
 
-  seroval-plugins@1.6.7:
-    resolution: {integrity: sha512-4Nk35ttD3DTDJW4hgw5StsVAPeU6qnDFnULAouw6tQ7oLTV/ICXrWpsXo2EE52eSP2joUMazbVf52mFEcADqRw==}
-    engines: {node: '>=10'}
+  seroval-plugins@1.7.0:
+    resolution: {integrity: sha512-WM4rArfPtLZriTuxC5DBvNulEwAaRcjNe/dkMOEesOcuvXf5nEwKf5Bw3AT92WHohqcc45+57GdtsCuBTI0mjw==}
+    engines: {node: '>=20'}
     peerDependencies:
       seroval: ^1.0
 
-  seroval@1.6.7:
-    resolution: {integrity: sha512-AeDcLh0yO2SFm9W71essgnSzLV9DI8ZH0x0knXn2DMnUZj728mpLbxjlbB6IqKCmqh8JA3cEqRyGoNkt584JcQ==}
-    engines: {node: '>=10'}
+  seroval@1.7.0:
+    resolution: {integrity: sha512-FU+LUkmDzWNsJ6oubZFN3dGPKny53DRhPJG6nftEaXDL8MIn19+kEE1Gvc+63Go+qPOwVUlKIdKhsu2HN6tksw==}
+    engines: {node: '>=20'}
 
   serve-static@2.2.1:
     resolution: {integrity: sha512-xRXBn0pPqQTVQiC8wyQrKs2MOlX24zQ0POGaj0kultvoOCstBQM5yvOhAVSUwOMjQtTvsPWoNCHfPGwaaQJhTw==}
@@ -10343,8 +10310,8 @@ packages:
     resolution: {integrity: sha512-e0VyvkVTwVYViNovRkZ9aodhxVlyoMn7eJhVUPxZ+eK9P/7CBkxvvsBOHqFPEH416726W8tLXXXjKwqgTErrCQ==}
     engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
 
-  solid-js@2.0.0-rc.16:
-    resolution: {integrity: sha512-GtrX+ieB9ctN2eQ0raDOHAHZBpFPoMn98gCsUn6YD5hz0xSou3zzV4J3Hti6xclvvrnPIFO8NJ+kk+pXbuXPHg==}
+  solid-js@2.0.0-rc.18:
+    resolution: {integrity: sha512-g4KjUQUjfqvqHYnBddN5nVAF7DFcDjtuH+NeDu/26vx6SlSDiqBJS8jsNag6VpdKAnfK8oLfphogEhXtM4UOyw==}
     engines: {node: '>=22.12.0'}
 
   sonic-boom@4.2.1:
@@ -10808,9 +10775,6 @@ packages:
     resolution: {integrity: sha512-Sc5u1VVln93y1Xnz4R+CunOZc7R9LUcTmhj7Rc7Eg3HVcf7rVn2FOoa812fe0W8p3jD7xeoGSYbfqCGGH2B6xw==}
     hasBin: true
 
-  validate-color@2.2.4:
-    resolution: {integrity: sha512-Znolz+b6CwW6eBXYld7MFM3O7funcdyRfjKC/X9hqYV/0VcC5LB/L45mff7m3dIn9wdGdNOAQ/fybNuD5P/HDw==}
-
   validate-npm-package-name@5.0.0:
     resolution: {integrity: sha512-YuKoXDAhBYxY7SfOKxHBDoSyENFeW5VvIIQp2TGQuit8gpK6MnWaQelBKxso72DoxTZfZdcP3W90LqpSkgPzLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
@@ -11145,20 +11109,10 @@ packages:
 
 snapshots:
 
-  '@a2ui/web_core@0.13.0':
+  '@agentclientprotocol/claude-agent-acp@0.95.0(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))':
     dependencies:
-      '@lit/context': 1.1.6
-      '@preact/signals-core': 1.14.4
-      lit: 3.3.3
-      redos-detector: 6.1.4
-      validate-color: 2.2.4
-      zod: 3.25.76
-      zod-to-json-schema: 3.25.2(zod@3.25.76)
-
-  '@agentclientprotocol/claude-agent-acp@0.93.0(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))':
-    dependencies:
-      '@agentclientprotocol/sdk': 1.9.0(zod@4.6.7)
-      '@anthropic-ai/claude-agent-sdk': 0.3.300(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))(zod@4.6.7)
+      '@agentclientprotocol/sdk': 2.0.1(zod@4.6.7)
+      '@anthropic-ai/claude-agent-sdk': 0.3.309(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))(zod@4.6.7)
       diff: 9.0.0
       zod: 4.6.7
     transitivePeerDependencies:
@@ -11168,7 +11122,7 @@ snapshots:
   '@agentclientprotocol/codex-acp@2.2.2':
     dependencies:
       '@agentclientprotocol/sdk': 1.9.0(zod@4.6.7)
-      '@openai/codex': 0.162.1
+      '@openai/codex': 0.164.0
       cross-spawn: 7.0.6
       diff: 9.0.0
       open: 11.0.4
@@ -11176,6 +11130,10 @@ snapshots:
       zod: 4.6.7
 
   '@agentclientprotocol/sdk@1.9.0(zod@4.6.7)':
+    dependencies:
+      zod: 4.6.7
+
+  '@agentclientprotocol/sdk@2.0.1(zod@4.6.7)':
     dependencies:
       zod: 4.6.7
 
@@ -11189,44 +11147,44 @@ snapshots:
       package-manager-detector: 1.9.0
       tinyexec: 1.3.1
 
-  '@anthropic-ai/claude-agent-sdk-darwin-arm64@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-darwin-arm64@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk-darwin-x64@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-darwin-x64@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk-linux-arm64-musl@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-linux-arm64-musl@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk-linux-arm64@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-linux-arm64@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk-linux-x64-musl@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-linux-x64-musl@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk-linux-x64@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-linux-x64@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk-win32-arm64@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-win32-arm64@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk-win32-x64@0.3.300':
+  '@anthropic-ai/claude-agent-sdk-win32-x64@0.3.309':
     optional: true
 
-  '@anthropic-ai/claude-agent-sdk@0.3.300(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))(zod@4.6.7)':
+  '@anthropic-ai/claude-agent-sdk@0.3.309(@anthropic-ai/sdk@0.135.0(zod@4.6.7))(@modelcontextprotocol/sdk@1.32.1(supports-color@10.2.2)(zod@4.6.7))(zod@4.6.7)':
     dependencies:
       '@anthropic-ai/sdk': 0.135.0(zod@4.6.7)
       '@modelcontextprotocol/sdk': 1.32.1(supports-color@10.2.2)(zod@4.6.7)
       zod: 4.6.7
     optionalDependencies:
-      '@anthropic-ai/claude-agent-sdk-darwin-arm64': 0.3.300
-      '@anthropic-ai/claude-agent-sdk-darwin-x64': 0.3.300
-      '@anthropic-ai/claude-agent-sdk-linux-arm64': 0.3.300
-      '@anthropic-ai/claude-agent-sdk-linux-arm64-musl': 0.3.300
-      '@anthropic-ai/claude-agent-sdk-linux-x64': 0.3.300
-      '@anthropic-ai/claude-agent-sdk-linux-x64-musl': 0.3.300
-      '@anthropic-ai/claude-agent-sdk-win32-arm64': 0.3.300
-      '@anthropic-ai/claude-agent-sdk-win32-x64': 0.3.300
+      '@anthropic-ai/claude-agent-sdk-darwin-arm64': 0.3.309
+      '@anthropic-ai/claude-agent-sdk-darwin-x64': 0.3.309
+      '@anthropic-ai/claude-agent-sdk-linux-arm64': 0.3.309
+      '@anthropic-ai/claude-agent-sdk-linux-arm64-musl': 0.3.309
+      '@anthropic-ai/claude-agent-sdk-linux-x64': 0.3.309
+      '@anthropic-ai/claude-agent-sdk-linux-x64-musl': 0.3.309
+      '@anthropic-ai/claude-agent-sdk-win32-arm64': 0.3.309
+      '@anthropic-ai/claude-agent-sdk-win32-x64': 0.3.309
 
   '@anthropic-ai/sdk@0.135.0(zod@4.6.7)':
     dependencies:
@@ -11955,7 +11913,7 @@ snapshots:
       fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
 
-  '@clawdbot/lobster@2026.9.16':
+  '@clawdbot/lobster@2026.9.16(patch_hash=d7c8f595b518c4c749e4787a2e90bfc9330fb0edccfcbdf8ff871787fb9a82e9)':
     dependencies:
       ajv: 8.20.0
       yaml: 2.9.1
@@ -12575,7 +12533,7 @@ snapshots:
     dependencies:
       '@hapi/hoek': 11.0.7
 
-  '@homebridge/ciao@1.3.12(supports-color@10.2.2)':
+  '@homebridge/ciao@1.3.12(patch_hash=1aa69b0c9796f4c7f3255bcc8cdae0c2409c3ad040ecac5e915160f0e58e49ae)(supports-color@10.2.2)':
     dependencies:
       debug: 4.4.3(supports-color@10.2.2)
       fast-deep-equal: 3.1.3
@@ -12787,10 +12745,10 @@ snapshots:
   '@lancedb/lancedb-win32-x64-msvc@0.40.0':
     optional: true
 
-  '@lancedb/lancedb@0.40.0(@types/node@26.6.5)(apache-arrow@21.2.0)':
+  '@lancedb/lancedb@0.40.0(@types/node@26.6.5)(apache-arrow@21.2.0(patch_hash=c8385fd9a8af8122fc1787481b5bba21fef95f61dc1a664e5d2c5e0cb9d5fd68))':
     dependencies:
       '@opentelemetry/api': 1.9.1
-      apache-arrow: 21.2.0
+      apache-arrow: 21.2.0(patch_hash=c8385fd9a8af8122fc1787481b5bba21fef95f61dc1a664e5d2c5e0cb9d5fd68)
       reflect-metadata: 0.2.2
     optionalDependencies:
       '@lancedb/lancedb-darwin-arm64': 0.40.0
@@ -12918,16 +12876,6 @@ snapshots:
   '@line/bot-sdk@11.3.0':
     dependencies:
       '@types/node': 24.19.2
-
-  '@lit-labs/ssr-dom-shim@1.6.0': {}
-
-  '@lit/context@1.1.6':
-    dependencies:
-      '@lit/reactive-element': 2.1.2
-
-  '@lit/reactive-element@2.1.2':
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.6.0
 
   '@lydell/node-pty-darwin-arm64@1.2.0-beta.15':
     optional: true
@@ -13100,7 +13048,7 @@ snapshots:
     dependencies:
       '@hono/node-server': 2.1.5(hono@4.13.13)
       ajv: 8.20.0
-      ajv-formats: 3.0.1
+      ajv-formats: 3.0.1(ajv@8.20.0)
       content-type: 1.0.5
       cors: 2.8.6
       cross-spawn: 7.0.6
@@ -13195,41 +13143,41 @@ snapshots:
 
   '@npmcli/redact@5.0.0': {}
 
-  '@openai/codex@0.162.1':
+  '@openai/codex@0.164.0':
     optionalDependencies:
-      '@openai/codex-darwin-arm64': '@openai/codex@0.162.1-darwin-arm64'
-      '@openai/codex-darwin-x64': '@openai/codex@0.162.1-darwin-x64'
-      '@openai/codex-linux-arm64': '@openai/codex@0.162.1-linux-arm64'
-      '@openai/codex-linux-x64': '@openai/codex@0.162.1-linux-x64'
-      '@openai/codex-win32-arm64': '@openai/codex@0.162.1-win32-arm64'
-      '@openai/codex-win32-x64': '@openai/codex@0.162.1-win32-x64'
+      '@openai/codex-darwin-arm64': '@openai/codex@0.164.0-darwin-arm64'
+      '@openai/codex-darwin-x64': '@openai/codex@0.164.0-darwin-x64'
+      '@openai/codex-linux-arm64': '@openai/codex@0.164.0-linux-arm64'
+      '@openai/codex-linux-x64': '@openai/codex@0.164.0-linux-x64'
+      '@openai/codex-win32-arm64': '@openai/codex@0.164.0-win32-arm64'
+      '@openai/codex-win32-x64': '@openai/codex@0.164.0-win32-x64'
 
-  '@openai/codex@0.162.1-darwin-arm64':
+  '@openai/codex@0.164.0-darwin-arm64':
     optional: true
 
-  '@openai/codex@0.162.1-darwin-x64':
+  '@openai/codex@0.164.0-darwin-x64':
     optional: true
 
-  '@openai/codex@0.162.1-linux-arm64':
+  '@openai/codex@0.164.0-linux-arm64':
     optional: true
 
-  '@openai/codex@0.162.1-linux-x64':
+  '@openai/codex@0.164.0-linux-x64':
     optional: true
 
-  '@openai/codex@0.162.1-win32-arm64':
+  '@openai/codex@0.164.0-win32-arm64':
     optional: true
 
-  '@openai/codex@0.162.1-win32-x64':
+  '@openai/codex@0.164.0-win32-x64':
     optional: true
 
-  '@openclaw/crabline@0.1.30':
+  '@openclaw/crabline@0.1.30(patch_hash=e20ebba9e5436726475f2e112d9c9322ff7078a0a8068c789716e1e6519b4cf0)':
     dependencies:
       '@types/node': 22.20.5
       commander: 15.0.0
       curve25519-js: 0.0.4
       libsignal: 6.0.0
       picocolors: 1.1.1
-      proper-lockfile: 4.1.2
+      proper-lockfile: 4.1.2(patch_hash=ef83b3d51ecb27f8b06d2a3660d509c3da303d7e1d2074712b0ecc2f6256b7cf)
       protobufjs: 8.8.1
       re2js: 2.8.6
       ws: 8.22.0
@@ -13239,80 +13187,48 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@openclaw/fs-safe-darwin-arm64@0.22.0':
+  '@openclaw/fs-safe-darwin-arm64@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-darwin-arm64@0.26.11':
+  '@openclaw/fs-safe-darwin-x64@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-darwin-x64@0.22.0':
+  '@openclaw/fs-safe-freebsd-arm64@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-darwin-x64@0.26.11':
+  '@openclaw/fs-safe-freebsd-x64@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-freebsd-arm64@0.26.11':
+  '@openclaw/fs-safe-linux-arm64-gnu@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-freebsd-x64@0.26.11':
+  '@openclaw/fs-safe-linux-arm64-musl@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-linux-arm64-gnu@0.22.0':
+  '@openclaw/fs-safe-linux-x64-gnu@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-linux-arm64-gnu@0.26.11':
+  '@openclaw/fs-safe-linux-x64-musl@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-linux-arm64-musl@0.22.0':
+  '@openclaw/fs-safe-win32-arm64-msvc@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-linux-arm64-musl@0.26.11':
+  '@openclaw/fs-safe-win32-x64-msvc@0.26.13':
     optional: true
 
-  '@openclaw/fs-safe-linux-x64-gnu@0.22.0':
-    optional: true
-
-  '@openclaw/fs-safe-linux-x64-gnu@0.26.11':
-    optional: true
-
-  '@openclaw/fs-safe-linux-x64-musl@0.22.0':
-    optional: true
-
-  '@openclaw/fs-safe-linux-x64-musl@0.26.11':
-    optional: true
-
-  '@openclaw/fs-safe-win32-arm64-msvc@0.26.11':
-    optional: true
-
-  '@openclaw/fs-safe-win32-x64-msvc@0.22.0':
-    optional: true
-
-  '@openclaw/fs-safe-win32-x64-msvc@0.26.11':
-    optional: true
-
-  '@openclaw/fs-safe@0.22.0':
+  '@openclaw/fs-safe@0.26.13':
     optionalDependencies:
-      '@openclaw/fs-safe-darwin-arm64': 0.22.0
-      '@openclaw/fs-safe-darwin-x64': 0.22.0
-      '@openclaw/fs-safe-linux-arm64-gnu': 0.22.0
-      '@openclaw/fs-safe-linux-arm64-musl': 0.22.0
-      '@openclaw/fs-safe-linux-x64-gnu': 0.22.0
-      '@openclaw/fs-safe-linux-x64-musl': 0.22.0
-      '@openclaw/fs-safe-win32-x64-msvc': 0.22.0
-      jszip: 3.10.2
-
-  '@openclaw/fs-safe@0.26.11':
-    optionalDependencies:
-      '@openclaw/fs-safe-darwin-arm64': 0.26.11
-      '@openclaw/fs-safe-darwin-x64': 0.26.11
-      '@openclaw/fs-safe-freebsd-arm64': 0.26.11
-      '@openclaw/fs-safe-freebsd-x64': 0.26.11
-      '@openclaw/fs-safe-linux-arm64-gnu': 0.26.11
-      '@openclaw/fs-safe-linux-arm64-musl': 0.26.11
-      '@openclaw/fs-safe-linux-x64-gnu': 0.26.11
-      '@openclaw/fs-safe-linux-x64-musl': 0.26.11
-      '@openclaw/fs-safe-win32-arm64-msvc': 0.26.11
-      '@openclaw/fs-safe-win32-x64-msvc': 0.26.11
+      '@openclaw/fs-safe-darwin-arm64': 0.26.13
+      '@openclaw/fs-safe-darwin-x64': 0.26.13
+      '@openclaw/fs-safe-freebsd-arm64': 0.26.13
+      '@openclaw/fs-safe-freebsd-x64': 0.26.13
+      '@openclaw/fs-safe-linux-arm64-gnu': 0.26.13
+      '@openclaw/fs-safe-linux-arm64-musl': 0.26.13
+      '@openclaw/fs-safe-linux-x64-gnu': 0.26.13
+      '@openclaw/fs-safe-linux-x64-musl': 0.26.13
+      '@openclaw/fs-safe-win32-arm64-msvc': 0.26.13
+      '@openclaw/fs-safe-win32-x64-msvc': 0.26.13
       jszip: 3.10.2
 
   '@openclaw/libterminal@0.3.10':
@@ -13954,8 +13870,6 @@ snapshots:
       '@peculiar/asn1-x509': 2.8.0
       '@peculiar/asn1-x509-logotype': 2.8.0
 
-  '@preact/signals-core@1.14.4': {}
-
   '@quansync/fs@1.1.0':
     dependencies:
       quansync: 1.0.0
@@ -14124,7 +14038,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@shinyoshiaki/binary-data@0.6.1':
+  '@shinyoshiaki/binary-data@0.6.1(patch_hash=231e04c1ca6a2f66dda30dfe23c1178d2df9fbc2161d9eac7689e3a751a85a9b)':
     dependencies:
       generate-function: 2.3.1
       is-plain-object: 2.0.4
@@ -14347,7 +14261,7 @@ snapshots:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  '@solidjs/babel-plugin@2.0.0-rc.16(@babel/core@7.29.7(supports-color@10.2.2))':
+  '@solidjs/babel-plugin@2.0.0-rc.18(@babel/core@7.29.7(supports-color@10.2.2))':
     dependencies:
       '@babel/core': 7.29.7(supports-color@10.2.2)
       '@babel/helper-module-imports': 7.18.6
@@ -14356,66 +14270,66 @@ snapshots:
       html-entities: 2.3.3
       parse5: 7.3.0
 
-  '@solidjs/compiler-darwin-arm64@2.0.0-rc.16':
+  '@solidjs/compiler-darwin-arm64@2.0.0-rc.18':
     optional: true
 
-  '@solidjs/compiler-darwin-x64@2.0.0-rc.16':
+  '@solidjs/compiler-darwin-x64@2.0.0-rc.18':
     optional: true
 
-  '@solidjs/compiler-linux-arm64-gnu@2.0.0-rc.16':
+  '@solidjs/compiler-linux-arm64-gnu@2.0.0-rc.18':
     optional: true
 
-  '@solidjs/compiler-linux-x64-gnu@2.0.0-rc.16':
+  '@solidjs/compiler-linux-x64-gnu@2.0.0-rc.18':
     optional: true
 
-  '@solidjs/compiler-wasm32-wasi@2.0.0-rc.16':
+  '@solidjs/compiler-wasm32-wasi@2.0.0-rc.18':
     dependencies:
       '@emnapi/core': 1.11.3
       '@emnapi/runtime': 1.11.3
       '@napi-rs/wasm-runtime': 1.2.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
     optional: true
 
-  '@solidjs/compiler-win32-x64-msvc@2.0.0-rc.16':
+  '@solidjs/compiler-win32-x64-msvc@2.0.0-rc.18':
     optional: true
 
-  '@solidjs/compiler@2.0.0-rc.16':
+  '@solidjs/compiler@2.0.0-rc.18':
     optionalDependencies:
-      '@solidjs/compiler-darwin-arm64': 2.0.0-rc.16
-      '@solidjs/compiler-darwin-x64': 2.0.0-rc.16
-      '@solidjs/compiler-linux-arm64-gnu': 2.0.0-rc.16
-      '@solidjs/compiler-linux-x64-gnu': 2.0.0-rc.16
-      '@solidjs/compiler-wasm32-wasi': 2.0.0-rc.16
-      '@solidjs/compiler-win32-x64-msvc': 2.0.0-rc.16
+      '@solidjs/compiler-darwin-arm64': 2.0.0-rc.18
+      '@solidjs/compiler-darwin-x64': 2.0.0-rc.18
+      '@solidjs/compiler-linux-arm64-gnu': 2.0.0-rc.18
+      '@solidjs/compiler-linux-x64-gnu': 2.0.0-rc.18
+      '@solidjs/compiler-wasm32-wasi': 2.0.0-rc.18
+      '@solidjs/compiler-win32-x64-msvc': 2.0.0-rc.18
 
-  '@solidjs/signals@2.0.0-rc.16': {}
+  '@solidjs/signals@2.0.0-rc.18(patch_hash=421b418083c0218bb54ceb3e12bd0eb74a84e86474ca26cc1f1114abbe58de48)': {}
 
-  '@solidjs/testing-library@1.0.0-beta.3(@solidjs/web@2.0.0-rc.16(solid-js@2.0.0-rc.16))(solid-js@2.0.0-rc.16)':
+  '@solidjs/testing-library@1.0.0-beta.3(@solidjs/web@2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18))(solid-js@2.0.0-rc.18)':
     dependencies:
-      '@solidjs/web': 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+      '@solidjs/web': 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       '@testing-library/dom': 10.4.2
-      solid-js: 2.0.0-rc.16
+      solid-js: 2.0.0-rc.18
 
-  '@solidjs/vite-plugin@3.0.0-next.50(@solidjs/web@2.0.0-rc.16(solid-js@2.0.0-rc.16))(solid-js@2.0.0-rc.16)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))':
+  '@solidjs/vite-plugin@3.0.0-next.51(@solidjs/web@2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18))(solid-js@2.0.0-rc.18)(supports-color@10.2.2)(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@babel/core': 7.29.7(supports-color@10.2.2)
-      '@solidjs/babel-plugin': 2.0.0-rc.16(@babel/core@7.29.7(supports-color@10.2.2))
-      '@solidjs/compiler': 2.0.0-rc.16
-      '@solidjs/web': 2.0.0-rc.16(solid-js@2.0.0-rc.16)
+      '@solidjs/babel-plugin': 2.0.0-rc.18(@babel/core@7.29.7(supports-color@10.2.2))
+      '@solidjs/compiler': 2.0.0-rc.18
+      '@solidjs/web': 2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)
       '@types/babel__core': 7.20.5
       merge-anything: 5.1.7
-      solid-js: 2.0.0-rc.16
+      solid-js: 2.0.0-rc.18
       vite: 8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
       vitefu: 1.1.3(vite@8.3.4(@types/node@26.6.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
     transitivePeerDependencies:
       - '@tsrx/core'
       - supports-color
 
-  '@solidjs/web@2.0.0-rc.16(solid-js@2.0.0-rc.16)':
+  '@solidjs/web@2.0.0-rc.18(patch_hash=6d6b2e52e607edf3c9cfcc1a26f331d013537d051f43bbb4f3e7877ed08fa5cf)(solid-js@2.0.0-rc.18)':
     dependencies:
-      seroval: 1.6.7
-      seroval-plugins: 1.6.7(seroval@1.6.7)
-      solid-js: 2.0.0-rc.16
+      seroval: 1.7.0
+      seroval-plugins: 1.7.0(seroval@1.7.0)
+      solid-js: 2.0.0-rc.18
 
   '@stablelib/base64@1.0.1': {}
 
@@ -14863,7 +14777,8 @@ snapshots:
 
   '@types/tough-cookie@4.0.5': {}
 
-  '@types/trusted-types@2.0.7': {}
+  '@types/trusted-types@2.0.7':
+    optional: true
 
   '@types/unist@2.0.11': {}
 
@@ -15226,10 +15141,10 @@ snapshots:
 
   acorn@8.19.0: {}
 
-  acpx@0.19.6:
+  acpx@0.21.0:
     dependencies:
       '@agentclientprotocol/sdk': 1.9.0(zod@4.6.7)
-      '@openclaw/fs-safe': 0.22.0
+      '@openclaw/fs-safe': 0.26.13
       commander: 15.0.0
       skillflag: 0.2.1
       tsx: 4.23.15
@@ -15257,8 +15172,8 @@ snapshots:
       humanize-ms: 1.2.1
     optional: true
 
-  ajv-formats@3.0.1:
-    dependencies:
+  ajv-formats@3.0.1(ajv@8.20.0):
+    optionalDependencies:
       ajv: 8.20.0
 
   ajv@6.15.0:
@@ -15289,7 +15204,7 @@ snapshots:
 
   anynum@1.0.1: {}
 
-  apache-arrow@21.2.0:
+  apache-arrow@21.2.0(patch_hash=c8385fd9a8af8122fc1787481b5bba21fef95f61dc1a664e5d2c5e0cb9d5fd68):
     dependencies:
       '@types/node': 25.9.9
       flatbuffers: 25.9.23
@@ -17288,22 +17203,6 @@ snapshots:
     dependencies:
       uc.micro: 3.0.0
 
-  lit-element@4.2.2:
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.6.0
-      '@lit/reactive-element': 2.1.2
-      lit-html: 3.3.3
-
-  lit-html@3.3.3:
-    dependencies:
-      '@types/trusted-types': 2.0.7
-
-  lit@3.3.3:
-    dependencies:
-      '@lit/reactive-element': 2.1.2
-      lit-element: 4.2.2
-      lit-html: 3.3.3
-
   locate-path@5.0.0:
     dependencies:
       p-locate: 4.1.0
@@ -17905,7 +17804,7 @@ snapshots:
     dependencies:
       minipass: 7.1.3
       minipass-sized: 2.0.0
-      minizlib: 3.1.0
+      minizlib: 3.1.0(patch_hash=9669b7a5b10b7831ff19c6066787f9dbed0dca18685d6ea8a17bad8282c3f39c)
     optionalDependencies:
       iconv-lite: 0.7.3
 
@@ -17927,7 +17826,7 @@ snapshots:
 
   minipass@7.1.3: {}
 
-  minizlib@3.1.0:
+  minizlib@3.1.0(patch_hash=9669b7a5b10b7831ff19c6066787f9dbed0dca18685d6ea8a17bad8282c3f39c):
     dependencies:
       minipass: 7.1.3
 
@@ -18387,11 +18286,13 @@ snapshots:
 
   pkce-challenge@5.0.1: {}
 
-  playwright-core@1.64.1: {}
+  playwright-core@1.64.1(patch_hash=eedf680682a6840d82c6ad530a60875857aa8c0372785acf8e8e5df9c2e3ac16):
+    dependencies:
+      acorn: 8.19.0
 
   playwright@1.64.1:
     dependencies:
-      playwright-core: 1.64.1
+      playwright-core: 1.64.1(patch_hash=eedf680682a6840d82c6ad530a60875857aa8c0372785acf8e8e5df9c2e3ac16)
 
   pngjs@5.0.0: {}
 
@@ -18453,7 +18354,7 @@ snapshots:
 
   process-warning@5.1.1: {}
 
-  proper-lockfile@4.1.2:
+  proper-lockfile@4.1.2(patch_hash=ef83b3d51ecb27f8b06d2a3660d509c3da303d7e1d2074712b0ecc2f6256b7cf):
     dependencies:
       graceful-fs: 4.2.11
       retry: 0.12.0
@@ -18573,10 +18474,6 @@ snapshots:
       unified: 11.0.5
       vfile: 6.0.3
 
-  redos-detector@6.1.4:
-    dependencies:
-      regjsparser: 0.13.0
-
   reflect-metadata@0.2.2: {}
 
   regex-recursion@6.0.2:
@@ -18588,10 +18485,6 @@ snapshots:
   regex@6.1.0:
     dependencies:
       regex-utilities: 2.3.0
-
-  regjsparser@0.13.0:
-    dependencies:
-      jsesc: 3.1.0
 
   rehype-recma@1.0.0(supports-color@10.2.2):
     dependencies:
@@ -18755,11 +18648,11 @@ snapshots:
       type-fest: 0.20.2
     optional: true
 
-  seroval-plugins@1.6.7(seroval@1.6.7):
+  seroval-plugins@1.7.0(seroval@1.7.0):
     dependencies:
-      seroval: 1.6.7
+      seroval: 1.7.0
 
-  seroval@1.6.7: {}
+  seroval@1.7.0: {}
 
   serve-static@2.2.1(supports-color@10.2.2):
     dependencies:
@@ -18887,12 +18780,12 @@ snapshots:
       ip-address: 10.7.4
       smart-buffer: 4.2.0
 
-  solid-js@2.0.0-rc.16:
+  solid-js@2.0.0-rc.18:
     dependencies:
-      '@solidjs/signals': 2.0.0-rc.16
+      '@solidjs/signals': 2.0.0-rc.18(patch_hash=421b418083c0218bb54ceb3e12bd0eb74a84e86474ca26cc1f1114abbe58de48)
       csstype: 3.2.3
-      seroval: 1.6.7
-      seroval-plugins: 1.6.7(seroval@1.6.7)
+      seroval: 1.7.0
+      seroval-plugins: 1.7.0(seroval@1.7.0)
 
   sonic-boom@4.2.1:
     dependencies:
@@ -19084,12 +18977,12 @@ snapshots:
       - bare-buffer
       - react-native-b4a
 
-  tar@7.5.22:
+  tar@7.5.22(patch_hash=fd38a2350a01d3eec80c7c393b88647baea164251683cffc481cb3aa5df2a75c):
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
       minipass: 7.1.3
-      minizlib: 3.1.0
+      minizlib: 3.1.0(patch_hash=9669b7a5b10b7831ff19c6066787f9dbed0dca18685d6ea8a17bad8282c3f39c)
       yallist: 5.0.0
 
   teex@1.0.1:
@@ -19364,8 +19257,6 @@ snapshots:
 
   uuid@14.0.3: {}
 
-  validate-color@2.2.4: {}
-
   validate-npm-package-name@5.0.0:
     dependencies:
       builtins: 5.1.0
@@ -19465,7 +19356,7 @@ snapshots:
       '@fidm/x509': 1.2.1
       '@noble/curves': 1.9.7
       '@peculiar/x509': 1.14.3
-      '@shinyoshiaki/binary-data': 0.6.1
+      '@shinyoshiaki/binary-data': 0.6.1(patch_hash=231e04c1ca6a2f66dda30dfe23c1178d2df9fbc2161d9eac7689e3a751a85a9b)
       buffer: 6.0.3
       debug: 4.4.0(supports-color@10.2.2)
       mediabunny: 1.61.6
@@ -19636,10 +19527,6 @@ snapshots:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
-
-  zod-to-json-schema@3.25.2(zod@3.25.76):
-    dependencies:
-      zod: 3.25.76
 
   zod-to-json-schema@3.25.2(zod@4.6.7):
     dependencies:

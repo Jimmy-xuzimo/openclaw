@@ -73,6 +73,11 @@ whichever is longer). These retained counts govern `/subagents list`,
 status summaries, descendant completion gating, and per-session concurrency
 checks; they are not proof that an executor is live.
 
+After execution ownership ends, the sweeper can reconcile the child's persisted
+terminal state even if routing metadata remains in memory. The completed result
+then follows normal completion delivery and retry; retained routing metadata does
+not keep the child running.
+
 During a graceful restart or Gateway suspension, lifecycle events from
 already-admitted runs remain tracked through restart preservation and completion
 processing. An already-admitted replacement run can finish refreshing a deferred
@@ -104,6 +109,9 @@ Detached orphan reads, restored requester wakes, and cleanup share a bounded
 background budget per Gateway. A large retained backlog waits there instead of
 filling the reader task limit needed by reconnecting clients. Queued cleanup stays
 tracked through restart drain and checks its original ownership before proceeding.
+Delivery releases that preparation budget when the Gateway accepts its input,
+while the registry keeps tracking the result. A queued completion never blocks
+the preparation of an earlier input in the same mailbox.
 
 Operator-admitted children retain bounded source evidence with their run record.
 Before continuing the requester after restart, the Gateway revalidates the current
