@@ -1,5 +1,5 @@
 {
-  "startupJsGzipBytes": 282539,
-  "reason": "Defer 245 optional feature English strings: matched b19bade build 285482 to 282539 B gzip with 7 JS and 1 CSS request.",
-  "updatedAt": "2026-10-23"
+  "startupJsGzipBytes": 271650,
+  "reason": "Same-host route grouping measures 271528 to 271650 B gzip (+122 B), with five startup JS requests and one CSS request unchanged. In 20 base/A-A/head triplets, 100 ms Cron readiness improves 912.5 to 816.2 ms (paired A/A -10.745%); total CPU is flat. Retain the measured head value under the approved small-byte measured-win policy.",
+  "updatedAt": "2026-10-26"
 }
