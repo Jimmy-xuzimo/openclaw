@@ -13,10 +13,11 @@ import type {
 } from "./control-ui-contract.js";
 import { CONTROL_UI_SESSION_PULL_REQUESTS_CHANGED_EVENT } from "./control-ui-contract.js";
 import { enqueuePrDelivery, invalidatePrReader } from "./control-ui-session-pr-delivery.js";
+import { recordSessionPrDiagnostic } from "./control-ui-session-pr-diagnostics.js";
 import {
   createControlUiSessionPrPreparedRead,
   addControlUiSessionPrMembership,
-  type PreparedSessionPrState,
+  type WatchedKeyState,
   loadSessionPullRequests,
   pushedSnapshot,
   retainControlUiSessionPrBranchSnapshot,
@@ -30,24 +31,20 @@ import type {
 import { withControlUiSessionPrSource } from "./control-ui-session-pr-source.js";
 import type { ControlUiSessionPullRequestsParams } from "./control-ui-session-prs.js";
 import type { GatewayBroadcastToConnIdsFn } from "./server-broadcast-types.js";
+import { yieldSessionListWork } from "./session-projection-work.js";
 import type { SessionRowProjection } from "./session-row-projection.js";
 
 const CONTROL_UI_SESSION_PR_POLL_INTERVAL_MS = 60_000;
 const CONTROL_UI_SESSION_PR_REFRESH_INTERVAL_MS = 10_000;
 const CONTROL_UI_SESSION_PR_LOAD_CONCURRENCY = 4;
 
-type WatchedKeyState = PreparedSessionPrState & {
-  sessionKeysByConnId: Map<string, Set<string>>;
-  refreshedAt?: number;
-  cancelRefresh?: () => void;
-  delivery?: Promise<void>;
-};
-
 type SubscriptionDeps = {
   broadcastToConnIds: GatewayBroadcastToConnIdsFn;
   prepareRead: (
     connId: string,
-    session: Pick<ControlUiSessionPullRequestsParams, "sessionKey" | "agentId">,
+    session: Pick<ControlUiSessionPullRequestsParams, "sessionKey" | "agentId"> & {
+      taskReceiptsOnly: boolean;
+    },
   ) => Promise<ControlUiSessionPrRead | undefined>;
   isConnectionActive?: (connId: string) => boolean;
   scheduler: GatewayScheduler;
@@ -166,10 +163,16 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
 
   const currentWatcher = async (connId: string, sessionKey: string) => {
     const watched = subscriptions.get(connId)?.get(sessionKey);
-    const target =
-      deps.isConnectionActive?.(connId) === false
-        ? undefined
-        : await limitReads(() => watched?.readCurrent());
+    let target: ControlUiSessionPrTarget | undefined;
+    if (watched && deps.isConnectionActive?.(connId) !== false) {
+      try {
+        watched.target.assertCurrent?.();
+        target = watched.target.assertCurrent ? watched.target : undefined;
+      } catch {
+        // Only changed grants need queued preparation; current grants stay synchronous.
+      }
+      target ??= await limitReads(watched.readCurrent);
+    }
     const subscription = subscriptions.get(connId);
     if (scope.isClosing || subscription?.get(sessionKey) !== watched) {
       return undefined;
@@ -195,32 +198,31 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
       }
       return undefined;
     }
-    const changed = watched.target.identity !== target.identity;
+    if (watched.target.identity === target.identity) {
+      watched.target = target;
+      return target;
+    }
     const previous = keyStates.get(watched.target.identity);
     const state = stateForTarget(target, undefined, previous);
-    if (changed) {
-      if (
-        watched.target.ownGitHubIdentity &&
-        watched.target.ownGitHubIdentity !== target.ownGitHubIdentity
-      ) {
-        invalidatePrReader(connId, deps.broadcastToConnIds);
-      }
-      removeMembership(previous, connId, sessionKey);
-      watched.deliveredHash = undefined;
+    if (
+      watched.target.ownGitHubIdentity &&
+      watched.target.ownGitHubIdentity !== target.ownGitHubIdentity
+    ) {
+      invalidatePrReader(connId, deps.broadcastToConnIds);
     }
+    removeMembership(previous, connId, sessionKey);
+    watched.deliveredHash = undefined;
     watched.target = target;
     addControlUiSessionPrMembership(state, connId, sessionKey);
-    if (changed) {
-      const replacement = scope
-        .track(() => loadSnapshot(target.identity))
-        .then(
-          () => {},
-          () => {},
-        );
-      replacements.add(replacement);
-      void replacement.finally(() => replacements.delete(replacement));
-    }
-    return { watched, target };
+    const replacement = scope
+      .track(() => loadSnapshot(target.identity))
+      .then(
+        () => undefined,
+        () => undefined,
+      );
+    replacements.add(replacement);
+    void replacement.finally(() => replacements.delete(replacement));
+    return target;
   };
 
   const currentKeyState = async (cacheKey: string) => {
@@ -386,8 +388,7 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
           if (
             !current ||
             scope.isClosing ||
-            current.watched !== watched ||
-            current.target.identity !== state.target.identity ||
+            current.identity !== state.target.identity ||
             subscriptions.get(connId)?.get(sessionKey) !== watched ||
             deps.isConnectionActive?.(connId) === false ||
             keyStates.get(state.target.identity) !== state ||
@@ -398,10 +399,10 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
           assertSourceCurrent();
           try {
             // The shared cache can carry another viewer's target after preparation yields.
-            current.target.assertCurrent?.();
+            current.assertCurrent?.();
             assertReadAuthority?.();
           } catch {
-            if (current.target.ownGitHubProfileId) {
+            if (current.ownGitHubProfileId) {
               if (state.snapshot === snapshot) {
                 state.snapshot = undefined;
               }
@@ -413,6 +414,7 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
           const sessions = Object.create(null) as ControlUiSessionPullRequestsChanged["sessions"];
           sessions[sessionKey] = snapshot;
           // A socket callback can replace the session or retire another viewer synchronously.
+          recordSessionPrDiagnostic("broadcast", state.target);
           deps.broadcastToConnIds(
             CONTROL_UI_SESSION_PULL_REQUESTS_CHANGED_EVENT,
             { sessions },
@@ -475,7 +477,10 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
     if (
       keyStates.size === 0 ||
       (!ownAuthorityChanged && !sessionChangeScopeAffectsStoredRows(change)) ||
-      ("facts" in change && change.facts?.kind === "unchanged")
+      (!change.factsInvalidated &&
+        "facts" in change &&
+        (change.facts?.kind === "unchanged" || change.facts?.kind === "category")) ||
+      change.factsInvalidated === "category"
     ) {
       return;
     }
@@ -498,7 +503,13 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
       }
     }
     if (keys.length > 0) {
-      void scope.track(() => Promise.allSettled(keys.map(currentKeyState))).catch(() => {});
+      // Warm readers must not drain the whole audience ahead of the mutation's RPC reply.
+      void scope
+        .track(async () => {
+          await yieldSessionListWork();
+          return Promise.allSettled(keys.map(currentKeyState));
+        })
+        .catch(() => {});
     }
   });
 
@@ -581,20 +592,10 @@ export function createControlUiSessionPullRequestSubscriptions(deps: Subscriptio
           let readCurrent = existingMode === receiptOnly ? previous?.readCurrent : undefined;
           let target = await readCurrent?.();
           if (!target) {
-            const preparedRead = await deps.prepareRead(normalizedConnId, session);
-            readCurrent =
-              preparedRead && receiptOnly
-                ? async () => {
-                    const current = await preparedRead();
-                    return (
-                      current && {
-                        ...current,
-                        taskReceiptsOnly: true,
-                        identity: JSON.stringify([current.identity, "receipts-only"]),
-                      }
-                    );
-                  }
-                : preparedRead;
+            readCurrent = await deps.prepareRead(normalizedConnId, {
+              ...session,
+              taskReceiptsOnly: receiptOnly,
+            });
             target = await readCurrent?.();
           }
           if (!readCurrent || !target) {
